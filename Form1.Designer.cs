@@ -37,6 +37,7 @@
             kryptonButton4 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             kryptonButton5 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             kryptonButton6 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            clipbox = new ScintillaNET.Scintilla();
             panel1 = new Panel();
             menuStrip1 = new MenuStrip();
             fileToolStripMenuItem = new ToolStripMenuItem();
@@ -54,13 +55,14 @@
             toolStripSeparator2 = new ToolStripSeparator();
             toolStripLabel7 = new ToolStripLabel();
             toolStripLabel8 = new ToolStripLabel();
-            scintilla1 = new ScintillaNET.Scintilla();
-            tabControl1 = new TabControl();
-            tabPage1 = new TabPage();
-            tabPage2 = new TabPage();
             toolStripLabel9 = new ToolStripLabel();
             toolStripSeparator3 = new ToolStripSeparator();
             toolStripLabel10 = new ToolStripLabel();
+            scintilla1 = new ScintillaNET.Scintilla();
+            tabControl1 = new TabControl();
+            tabPage1 = new TabPage();
+            cliplistbox = new ComponentFactory.Krypton.Toolkit.KryptonListBox();
+            tabPage2 = new TabPage();
             flowLayoutPanel1.SuspendLayout();
             menuStrip1.SuspendLayout();
             toolStrip1.SuspendLayout();
@@ -88,10 +90,11 @@
             flowLayoutPanel1.Controls.Add(kryptonButton4);
             flowLayoutPanel1.Controls.Add(kryptonButton5);
             flowLayoutPanel1.Controls.Add(kryptonButton6);
+            flowLayoutPanel1.Controls.Add(clipbox);
             flowLayoutPanel1.Dock = DockStyle.Right;
-            flowLayoutPanel1.Location = new Point(1122, 0);
+            flowLayoutPanel1.Location = new Point(1073, 0);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(101, 590);
+            flowLayoutPanel1.Size = new Size(101, 586);
             flowLayoutPanel1.TabIndex = 0;
             // 
             // kryptonButton1
@@ -148,13 +151,30 @@
             kryptonButton6.TabIndex = 5;
             kryptonButton6.Values.Text = "kryptonButton6";
             // 
+            // clipbox
+            // 
+            clipbox.AutoCMaxHeight = 9;
+            clipbox.BiDirectionality = ScintillaNET.BiDirectionalDisplayType.Disabled;
+            clipbox.CaretLineBackColor = Color.Black;
+            clipbox.CaretLineVisible = true;
+            clipbox.Dock = DockStyle.Fill;
+            clipbox.LexerName = null;
+            clipbox.Location = new Point(3, 441);
+            clipbox.Name = "clipbox";
+            clipbox.ScrollWidth = 57;
+            clipbox.Size = new Size(98, 0);
+            clipbox.TabIndents = true;
+            clipbox.TabIndex = 6;
+            clipbox.UseRightToLeftReadingLayout = false;
+            clipbox.WrapMode = ScintillaNET.WrapMode.None;
+            // 
             // panel1
             // 
             panel1.BackColor = Color.Black;
             panel1.Dock = DockStyle.Right;
-            panel1.Location = new Point(1112, 0);
+            panel1.Location = new Point(1063, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(10, 590);
+            panel1.Size = new Size(10, 586);
             panel1.TabIndex = 1;
             // 
             // menuStrip1
@@ -163,9 +183,9 @@
             menuStrip1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             menuStrip1.ImageScalingSize = new Size(20, 20);
             menuStrip1.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, editToolStripMenuItem, viewToolStripMenuItem, projectToolStripMenuItem });
-            menuStrip1.Location = new Point(0, 590);
+            menuStrip1.Location = new Point(0, 586);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(1223, 28);
+            menuStrip1.Size = new Size(1174, 28);
             menuStrip1.TabIndex = 2;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -200,9 +220,9 @@
             toolStrip1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             toolStrip1.ImageScalingSize = new Size(20, 20);
             toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripLabel1, toolStripLabel2, toolStripLabel3, toolStripSeparator1, toolStripLabel4, toolStripLabel5, toolStripLabel6, toolStripSeparator2, toolStripLabel7, toolStripLabel8, toolStripLabel9, toolStripSeparator3, toolStripLabel10 });
-            toolStrip1.Location = new Point(0, 565);
+            toolStrip1.Location = new Point(0, 561);
             toolStrip1.Name = "toolStrip1";
-            toolStrip1.Size = new Size(1112, 25);
+            toolStrip1.Size = new Size(1063, 25);
             toolStrip1.TabIndex = 3;
             toolStrip1.Text = "toolStrip1";
             // 
@@ -264,57 +284,6 @@
             toolStripLabel8.Size = new Size(111, 22);
             toolStripLabel8.Text = "toolStripLabel8";
             // 
-            // scintilla1
-            // 
-            scintilla1.AutoCMaxHeight = 9;
-            scintilla1.BiDirectionality = ScintillaNET.BiDirectionalDisplayType.Disabled;
-            scintilla1.CaretLineBackColor = Color.LightGray;
-            scintilla1.CaretLineVisible = true;
-            scintilla1.Dock = DockStyle.Fill;
-            scintilla1.LexerName = null;
-            scintilla1.Location = new Point(3, 3);
-            scintilla1.Name = "scintilla1";
-            scintilla1.ScrollWidth = 57;
-            scintilla1.Size = new Size(1098, 526);
-            scintilla1.TabIndents = true;
-            scintilla1.TabIndex = 4;
-            scintilla1.UseRightToLeftReadingLayout = false;
-            scintilla1.WrapMode = ScintillaNET.WrapMode.None;
-            scintilla1.TextChanged += scintilla1_TextChanged;
-            scintilla1.Click += scintilla1_Click;
-            // 
-            // tabControl1
-            // 
-            tabControl1.Controls.Add(tabPage1);
-            tabControl1.Controls.Add(tabPage2);
-            tabControl1.Dock = DockStyle.Fill;
-            tabControl1.Location = new Point(0, 0);
-            tabControl1.Name = "tabControl1";
-            tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(1112, 565);
-            tabControl1.TabIndex = 5;
-            // 
-            // tabPage1
-            // 
-            tabPage1.Controls.Add(scintilla1);
-            tabPage1.Location = new Point(4, 29);
-            tabPage1.Name = "tabPage1";
-            tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(1104, 532);
-            tabPage1.TabIndex = 0;
-            tabPage1.Text = "tabPage1";
-            tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // tabPage2
-            // 
-            tabPage2.Location = new Point(4, 29);
-            tabPage2.Name = "tabPage2";
-            tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(774, 537);
-            tabPage2.TabIndex = 1;
-            tabPage2.Text = "tabPage2";
-            tabPage2.UseVisualStyleBackColor = true;
-            // 
             // toolStripLabel9
             // 
             toolStripLabel9.Name = "toolStripLabel9";
@@ -332,12 +301,74 @@
             toolStripLabel10.Size = new Size(66, 22);
             toolStripLabel10.Text = "0.001 KB";
             // 
+            // scintilla1
+            // 
+            scintilla1.AutoCMaxHeight = 9;
+            scintilla1.BiDirectionality = ScintillaNET.BiDirectionalDisplayType.Disabled;
+            scintilla1.CaretLineBackColor = Color.LightGray;
+            scintilla1.CaretLineVisible = true;
+            scintilla1.Dock = DockStyle.Fill;
+            scintilla1.LexerName = null;
+            scintilla1.Location = new Point(3, 3);
+            scintilla1.Name = "scintilla1";
+            scintilla1.ScrollWidth = 57;
+            scintilla1.Size = new Size(1049, 522);
+            scintilla1.TabIndents = true;
+            scintilla1.TabIndex = 4;
+            scintilla1.UseRightToLeftReadingLayout = false;
+            scintilla1.WrapMode = ScintillaNET.WrapMode.None;
+            scintilla1.TextChanged += scintilla1_TextChanged;
+            
+            // 
+            // tabControl1
+            // 
+            tabControl1.Controls.Add(tabPage1);
+            tabControl1.Controls.Add(tabPage2);
+            tabControl1.Dock = DockStyle.Fill;
+            tabControl1.Location = new Point(0, 0);
+            tabControl1.Name = "tabControl1";
+            tabControl1.SelectedIndex = 0;
+            tabControl1.Size = new Size(1063, 561);
+            tabControl1.TabIndex = 5;
+            // 
+            // tabPage1
+            // 
+            tabPage1.Controls.Add(cliplistbox);
+            tabPage1.Controls.Add(scintilla1);
+            tabPage1.Location = new Point(4, 29);
+            tabPage1.Name = "tabPage1";
+            tabPage1.Padding = new Padding(3);
+            tabPage1.Size = new Size(1055, 528);
+            tabPage1.TabIndex = 0;
+            tabPage1.Text = "tabPage1";
+            tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // cliplistbox
+            // 
+            cliplistbox.Items.AddRange(new object[] { "TExt 1", "TEzt 2" });
+            cliplistbox.Location = new Point(778, 79);
+            cliplistbox.Name = "cliplistbox";
+            cliplistbox.Size = new Size(220, 307);
+            cliplistbox.TabIndex = 5;
+            cliplistbox.SelectedIndexChanged += cliplistbox_SelectedIndexChanged;
+            
+            // 
+            // tabPage2
+            // 
+            tabPage2.Location = new Point(4, 29);
+            tabPage2.Name = "tabPage2";
+            tabPage2.Padding = new Padding(3);
+            tabPage2.Size = new Size(1055, 528);
+            tabPage2.TabIndex = 1;
+            tabPage2.Text = "tabPage2";
+            tabPage2.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(1223, 618);
+            ClientSize = new Size(1174, 614);
             Controls.Add(tabControl1);
             Controls.Add(toolStrip1);
             Controls.Add(panel1);
@@ -400,5 +431,7 @@
         private ToolStripLabel toolStripLabel9;
         private ToolStripSeparator toolStripSeparator3;
         private ToolStripLabel toolStripLabel10;
+        private ScintillaNET.Scintilla clipbox;
+        private ComponentFactory.Krypton.Toolkit.KryptonListBox cliplistbox;
     }
 }

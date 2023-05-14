@@ -1,7 +1,12 @@
 using ComponentFactory.Krypton.Toolkit;
 using ScintillaNET;
+using System.ComponentModel;
+using System.Runtime.InteropServices;
+using System.Windows;
 
 namespace Sirius
+
+
 {
     public partial class Form1 : KryptonForm
     {
@@ -25,6 +30,10 @@ namespace Sirius
             toolStripLabel7.Text = scintilla1.Styles[Style.Cpp.String].Font.ToString(); //Getting Font Name
             toolStripLabel10.Text = Convert.ToInt32(length) / 1000 + " KB";
 
+
+
+
+
         }
 
         private void Form1_Changed(object sender, EventArgs e)
@@ -33,9 +42,20 @@ namespace Sirius
             toolStripLabel6.Text = this.Width.ToString();
         }
 
-        private void scintilla1_Click(object sender, EventArgs e)
+   
+
+        private void cliplistbox_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
+
+
+
+        private async void TrackClipboardChanges_EventHandler(object sender, EventArgs e)
+        {
+            cliplistbox.Items.Add(Clipboard.GetText());
+        }
+
     }
 }
+
