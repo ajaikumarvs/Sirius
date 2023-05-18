@@ -31,13 +31,15 @@
             components = new System.ComponentModel.Container();
             kryptonPalette1 = new ComponentFactory.Krypton.Toolkit.KryptonPalette(components);
             flowLayoutPanel1 = new FlowLayoutPanel();
-            kryptonButton1 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            kryptonButton2 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            kryptonButton3 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            kryptonButton4 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            kryptonButton5 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            kryptonButton6 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            clipbox = new ScintillaNET.Scintilla();
+            button1 = new Button();
+            button2 = new Button();
+            button3 = new Button();
+            button4 = new Button();
+            button5 = new Button();
+            button6 = new Button();
+            label1 = new Label();
+            tableLayoutPanel1 = new TableLayoutPanel();
+            button7 = new Button();
             panel1 = new Panel();
             menuStrip1 = new MenuStrip();
             fileToolStripMenuItem = new ToolStripMenuItem();
@@ -63,7 +65,10 @@
             tabPage1 = new TabPage();
             cliplistbox = new ComponentFactory.Krypton.Toolkit.KryptonListBox();
             tabPage2 = new TabPage();
+            button8 = new Button();
+            button9 = new Button();
             flowLayoutPanel1.SuspendLayout();
+            tableLayoutPanel1.SuspendLayout();
             menuStrip1.SuspendLayout();
             toolStrip1.SuspendLayout();
             tabControl1.SuspendLayout();
@@ -84,97 +89,117 @@
             // 
             // flowLayoutPanel1
             // 
-            flowLayoutPanel1.Controls.Add(kryptonButton1);
-            flowLayoutPanel1.Controls.Add(kryptonButton2);
-            flowLayoutPanel1.Controls.Add(kryptonButton3);
-            flowLayoutPanel1.Controls.Add(kryptonButton4);
-            flowLayoutPanel1.Controls.Add(kryptonButton5);
-            flowLayoutPanel1.Controls.Add(kryptonButton6);
-            flowLayoutPanel1.Controls.Add(clipbox);
+            flowLayoutPanel1.Controls.Add(button1);
+            flowLayoutPanel1.Controls.Add(button2);
+            flowLayoutPanel1.Controls.Add(button3);
+            flowLayoutPanel1.Controls.Add(button4);
+            flowLayoutPanel1.Controls.Add(button5);
+            flowLayoutPanel1.Controls.Add(button6);
+            flowLayoutPanel1.Controls.Add(label1);
+            flowLayoutPanel1.Controls.Add(tableLayoutPanel1);
             flowLayoutPanel1.Dock = DockStyle.Right;
-            flowLayoutPanel1.Location = new Point(1073, 0);
+            flowLayoutPanel1.Location = new Point(1177, 0);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(101, 586);
+            flowLayoutPanel1.Size = new Size(101, 597);
             flowLayoutPanel1.TabIndex = 0;
             // 
-            // kryptonButton1
+            // button1
             // 
-            kryptonButton1.Dock = DockStyle.Top;
-            kryptonButton1.Location = new Point(3, 3);
-            kryptonButton1.Name = "kryptonButton1";
-            kryptonButton1.Size = new Size(98, 67);
-            kryptonButton1.TabIndex = 0;
-            kryptonButton1.Values.Text = "kryptonButton1";
+            button1.Location = new Point(3, 3);
+            button1.Name = "button1";
+            button1.Size = new Size(94, 76);
+            button1.TabIndex = 0;
+            button1.Text = "button1";
+            button1.UseVisualStyleBackColor = true;
             // 
-            // kryptonButton2
+            // button2
             // 
-            kryptonButton2.Dock = DockStyle.Top;
-            kryptonButton2.Location = new Point(3, 76);
-            kryptonButton2.Name = "kryptonButton2";
-            kryptonButton2.Size = new Size(98, 67);
-            kryptonButton2.TabIndex = 1;
-            kryptonButton2.Values.Text = "kryptonButton2";
+            button2.Location = new Point(3, 85);
+            button2.Name = "button2";
+            button2.Size = new Size(94, 76);
+            button2.TabIndex = 1;
+            button2.Text = "button2";
+            button2.UseVisualStyleBackColor = true;
             // 
-            // kryptonButton3
+            // button3
             // 
-            kryptonButton3.Dock = DockStyle.Top;
-            kryptonButton3.Location = new Point(3, 149);
-            kryptonButton3.Name = "kryptonButton3";
-            kryptonButton3.Size = new Size(98, 67);
-            kryptonButton3.TabIndex = 2;
-            kryptonButton3.Values.Text = "kryptonButton3";
+            button3.Location = new Point(3, 167);
+            button3.Name = "button3";
+            button3.Size = new Size(94, 76);
+            button3.TabIndex = 2;
+            button3.Text = "button3";
+            button3.UseVisualStyleBackColor = true;
             // 
-            // kryptonButton4
+            // button4
             // 
-            kryptonButton4.Dock = DockStyle.Top;
-            kryptonButton4.Location = new Point(3, 222);
-            kryptonButton4.Name = "kryptonButton4";
-            kryptonButton4.Size = new Size(98, 67);
-            kryptonButton4.TabIndex = 3;
-            kryptonButton4.Values.Text = "kryptonButton4";
+            button4.Location = new Point(3, 249);
+            button4.Name = "button4";
+            button4.Size = new Size(94, 76);
+            button4.TabIndex = 3;
+            button4.Text = "button4";
+            button4.UseVisualStyleBackColor = true;
             // 
-            // kryptonButton5
+            // button5
             // 
-            kryptonButton5.Dock = DockStyle.Top;
-            kryptonButton5.Location = new Point(3, 295);
-            kryptonButton5.Name = "kryptonButton5";
-            kryptonButton5.Size = new Size(98, 67);
-            kryptonButton5.TabIndex = 4;
-            kryptonButton5.Values.Text = "kryptonButton5";
+            button5.Location = new Point(3, 331);
+            button5.Name = "button5";
+            button5.Size = new Size(94, 76);
+            button5.TabIndex = 4;
+            button5.Text = "button5";
+            button5.UseVisualStyleBackColor = true;
             // 
-            // kryptonButton6
+            // button6
             // 
-            kryptonButton6.Dock = DockStyle.Top;
-            kryptonButton6.Location = new Point(3, 368);
-            kryptonButton6.Name = "kryptonButton6";
-            kryptonButton6.Size = new Size(98, 67);
-            kryptonButton6.TabIndex = 5;
-            kryptonButton6.Values.Text = "kryptonButton6";
+            button6.Location = new Point(3, 413);
+            button6.Name = "button6";
+            button6.Size = new Size(94, 76);
+            button6.TabIndex = 5;
+            button6.Text = "button6";
+            button6.UseVisualStyleBackColor = true;
             // 
-            // clipbox
+            // label1
             // 
-            clipbox.AutoCMaxHeight = 9;
-            clipbox.BiDirectionality = ScintillaNET.BiDirectionalDisplayType.Disabled;
-            clipbox.CaretLineBackColor = Color.Black;
-            clipbox.CaretLineVisible = true;
-            clipbox.Dock = DockStyle.Fill;
-            clipbox.LexerName = null;
-            clipbox.Location = new Point(3, 441);
-            clipbox.Name = "clipbox";
-            clipbox.ScrollWidth = 57;
-            clipbox.Size = new Size(98, 0);
-            clipbox.TabIndents = true;
-            clipbox.TabIndex = 6;
-            clipbox.UseRightToLeftReadingLayout = false;
-            clipbox.WrapMode = ScintillaNET.WrapMode.None;
+            label1.AutoSize = true;
+            label1.Dock = DockStyle.Fill;
+            label1.Location = new Point(3, 492);
+            label1.Name = "label1";
+            label1.Size = new Size(80, 20);
+            label1.TabIndex = 6;
+            label1.Text = "Font Size : ";
+            // 
+            // tableLayoutPanel1
+            // 
+            tableLayoutPanel1.ColumnCount = 2;
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel1.Controls.Add(button7, 0, 0);
+            tableLayoutPanel1.Controls.Add(button8, 1, 0);
+            tableLayoutPanel1.Controls.Add(button9, 0, 1);
+            tableLayoutPanel1.Location = new Point(3, 515);
+            tableLayoutPanel1.Name = "tableLayoutPanel1";
+            tableLayoutPanel1.RowCount = 2;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel1.Size = new Size(86, 68);
+            tableLayoutPanel1.TabIndex = 7;
+            // 
+            // button7
+            // 
+            button7.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            button7.Location = new Point(3, 3);
+            button7.Name = "button7";
+            button7.Size = new Size(37, 28);
+            button7.TabIndex = 0;
+            button7.Text = "B";
+            button7.UseVisualStyleBackColor = true;
             // 
             // panel1
             // 
             panel1.BackColor = Color.Black;
             panel1.Dock = DockStyle.Right;
-            panel1.Location = new Point(1063, 0);
+            panel1.Location = new Point(1167, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(10, 586);
+            panel1.Size = new Size(10, 597);
             panel1.TabIndex = 1;
             // 
             // menuStrip1
@@ -183,9 +208,9 @@
             menuStrip1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             menuStrip1.ImageScalingSize = new Size(20, 20);
             menuStrip1.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, editToolStripMenuItem, viewToolStripMenuItem, projectToolStripMenuItem });
-            menuStrip1.Location = new Point(0, 586);
+            menuStrip1.Location = new Point(0, 597);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(1174, 28);
+            menuStrip1.Size = new Size(1278, 28);
             menuStrip1.TabIndex = 2;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -220,9 +245,9 @@
             toolStrip1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             toolStrip1.ImageScalingSize = new Size(20, 20);
             toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripLabel1, toolStripLabel2, toolStripLabel3, toolStripSeparator1, toolStripLabel4, toolStripLabel5, toolStripLabel6, toolStripSeparator2, toolStripLabel7, toolStripLabel8, toolStripLabel9, toolStripSeparator3, toolStripLabel10 });
-            toolStrip1.Location = new Point(0, 561);
+            toolStrip1.Location = new Point(0, 572);
             toolStrip1.Name = "toolStrip1";
-            toolStrip1.Size = new Size(1063, 25);
+            toolStrip1.Size = new Size(1167, 25);
             toolStrip1.TabIndex = 3;
             toolStrip1.Text = "toolStrip1";
             // 
@@ -312,13 +337,13 @@
             scintilla1.Location = new Point(3, 3);
             scintilla1.Name = "scintilla1";
             scintilla1.ScrollWidth = 57;
-            scintilla1.Size = new Size(1049, 522);
+            scintilla1.Size = new Size(1153, 533);
             scintilla1.TabIndents = true;
             scintilla1.TabIndex = 4;
             scintilla1.UseRightToLeftReadingLayout = false;
             scintilla1.WrapMode = ScintillaNET.WrapMode.None;
             scintilla1.TextChanged += scintilla1_TextChanged;
-            
+            scintilla1.Click += scintilla1_Click;
             // 
             // tabControl1
             // 
@@ -328,7 +353,7 @@
             tabControl1.Location = new Point(0, 0);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(1063, 561);
+            tabControl1.Size = new Size(1167, 572);
             tabControl1.TabIndex = 5;
             // 
             // tabPage1
@@ -338,37 +363,56 @@
             tabPage1.Location = new Point(4, 29);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(1055, 528);
+            tabPage1.Size = new Size(1159, 539);
             tabPage1.TabIndex = 0;
-            tabPage1.Text = "tabPage1";
+            tabPage1.Text = "Untitled";
             tabPage1.UseVisualStyleBackColor = true;
             // 
             // cliplistbox
             // 
             cliplistbox.Items.AddRange(new object[] { "TExt 1", "TEzt 2" });
-            cliplistbox.Location = new Point(778, 79);
+            cliplistbox.Location = new Point(828, 6);
             cliplistbox.Name = "cliplistbox";
-            cliplistbox.Size = new Size(220, 307);
+            cliplistbox.Size = new Size(221, 516);
             cliplistbox.TabIndex = 5;
             cliplistbox.SelectedIndexChanged += cliplistbox_SelectedIndexChanged;
-            
             // 
             // tabPage2
             // 
             tabPage2.Location = new Point(4, 29);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(1055, 528);
+            tabPage2.Size = new Size(1159, 539);
             tabPage2.TabIndex = 1;
-            tabPage2.Text = "tabPage2";
+            tabPage2.Text = "Macro";
             tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // button8
+            // 
+            button8.Font = new Font("Lucida Bright", 9F, FontStyle.Italic, GraphicsUnit.Point);
+            button8.Location = new Point(46, 3);
+            button8.Name = "button8";
+            button8.Size = new Size(37, 28);
+            button8.TabIndex = 1;
+            button8.Text = "I";
+            button8.UseVisualStyleBackColor = true;
+            // 
+            // button9
+            // 
+            button9.Font = new Font("Segoe UI", 9F, FontStyle.Underline, GraphicsUnit.Point);
+            button9.Location = new Point(3, 37);
+            button9.Name = "button9";
+            button9.Size = new Size(37, 28);
+            button9.TabIndex = 2;
+            button9.Text = "U";
+            button9.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(1174, 614);
+            ClientSize = new Size(1278, 625);
             Controls.Add(tabControl1);
             Controls.Add(toolStrip1);
             Controls.Add(panel1);
@@ -387,6 +431,8 @@
             Load += Form1_Load;
             SizeChanged += Form1_Changed;
             flowLayoutPanel1.ResumeLayout(false);
+            flowLayoutPanel1.PerformLayout();
+            tableLayoutPanel1.ResumeLayout(false);
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             toolStrip1.ResumeLayout(false);
@@ -401,12 +447,6 @@
 
         private ComponentFactory.Krypton.Toolkit.KryptonPalette kryptonPalette1;
         private FlowLayoutPanel flowLayoutPanel1;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton kryptonButton1;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton kryptonButton2;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton kryptonButton3;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton kryptonButton4;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton kryptonButton5;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton kryptonButton6;
         private Panel panel1;
         private MenuStrip menuStrip1;
         private ToolStripMenuItem fileToolStripMenuItem;
@@ -431,7 +471,17 @@
         private ToolStripLabel toolStripLabel9;
         private ToolStripSeparator toolStripSeparator3;
         private ToolStripLabel toolStripLabel10;
-        private ScintillaNET.Scintilla clipbox;
         private ComponentFactory.Krypton.Toolkit.KryptonListBox cliplistbox;
+        private Button button1;
+        private Button button2;
+        private Button button3;
+        private Button button4;
+        private Button button5;
+        private Button button6;
+        private Label label1;
+        private TableLayoutPanel tableLayoutPanel1;
+        private Button button7;
+        private Button button8;
+        private Button button9;
     }
 }
