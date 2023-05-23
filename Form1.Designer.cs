@@ -40,6 +40,8 @@
             label1 = new Label();
             tableLayoutPanel1 = new TableLayoutPanel();
             button7 = new Button();
+            button8 = new Button();
+            button9 = new Button();
             panel1 = new Panel();
             menuStrip1 = new MenuStrip();
             fileToolStripMenuItem = new ToolStripMenuItem();
@@ -65,8 +67,6 @@
             tabPage1 = new TabPage();
             cliplistbox = new ComponentFactory.Krypton.Toolkit.KryptonListBox();
             tabPage2 = new TabPage();
-            button8 = new Button();
-            button9 = new Button();
             flowLayoutPanel1.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             menuStrip1.SuspendLayout();
@@ -109,7 +109,7 @@
             button1.Name = "button1";
             button1.Size = new Size(94, 76);
             button1.TabIndex = 0;
-            button1.Text = "button1";
+            button1.Text = "New";
             button1.UseVisualStyleBackColor = true;
             // 
             // button2
@@ -118,7 +118,7 @@
             button2.Name = "button2";
             button2.Size = new Size(94, 76);
             button2.TabIndex = 1;
-            button2.Text = "button2";
+            button2.Text = "Open";
             button2.UseVisualStyleBackColor = true;
             // 
             // button3
@@ -127,7 +127,7 @@
             button3.Name = "button3";
             button3.Size = new Size(94, 76);
             button3.TabIndex = 2;
-            button3.Text = "button3";
+            button3.Text = "Compare";
             button3.UseVisualStyleBackColor = true;
             // 
             // button4
@@ -136,7 +136,7 @@
             button4.Name = "button4";
             button4.Size = new Size(94, 76);
             button4.TabIndex = 3;
-            button4.Text = "button4";
+            button4.Text = "Sync";
             button4.UseVisualStyleBackColor = true;
             // 
             // button5
@@ -145,7 +145,7 @@
             button5.Name = "button5";
             button5.Size = new Size(94, 76);
             button5.TabIndex = 4;
-            button5.Text = "button5";
+            button5.Text = "FIle View";
             button5.UseVisualStyleBackColor = true;
             // 
             // button6
@@ -192,6 +192,27 @@
             button7.TabIndex = 0;
             button7.Text = "B";
             button7.UseVisualStyleBackColor = true;
+            button7.Click += button7_Click;
+            // 
+            // button8
+            // 
+            button8.Font = new Font("Lucida Bright", 9F, FontStyle.Italic, GraphicsUnit.Point);
+            button8.Location = new Point(46, 3);
+            button8.Name = "button8";
+            button8.Size = new Size(37, 28);
+            button8.TabIndex = 1;
+            button8.Text = "I";
+            button8.UseVisualStyleBackColor = true;
+            // 
+            // button9
+            // 
+            button9.Font = new Font("Segoe UI", 9F, FontStyle.Underline, GraphicsUnit.Point);
+            button9.Location = new Point(3, 37);
+            button9.Name = "button9";
+            button9.Size = new Size(37, 28);
+            button9.TabIndex = 2;
+            button9.Text = "U";
+            button9.UseVisualStyleBackColor = true;
             // 
             // panel1
             // 
@@ -343,7 +364,8 @@
             scintilla1.UseRightToLeftReadingLayout = false;
             scintilla1.WrapMode = ScintillaNET.WrapMode.None;
             scintilla1.TextChanged += scintilla1_TextChanged;
-            scintilla1.Click += scintilla1_Click;
+            scintilla1.CharAdded += scintilla1_CharAdded;
+               
             // 
             // tabControl1
             // 
@@ -370,7 +392,7 @@
             // 
             // cliplistbox
             // 
-            cliplistbox.Items.AddRange(new object[] { "TExt 1", "TEzt 2" });
+            cliplistbox.Items.AddRange(new object[] { "Clipboard Text 1", "Clipboard Text 2" });
             cliplistbox.Location = new Point(828, 6);
             cliplistbox.Name = "cliplistbox";
             cliplistbox.Size = new Size(221, 516);
@@ -386,26 +408,6 @@
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Macro";
             tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // button8
-            // 
-            button8.Font = new Font("Lucida Bright", 9F, FontStyle.Italic, GraphicsUnit.Point);
-            button8.Location = new Point(46, 3);
-            button8.Name = "button8";
-            button8.Size = new Size(37, 28);
-            button8.TabIndex = 1;
-            button8.Text = "I";
-            button8.UseVisualStyleBackColor = true;
-            // 
-            // button9
-            // 
-            button9.Font = new Font("Segoe UI", 9F, FontStyle.Underline, GraphicsUnit.Point);
-            button9.Location = new Point(3, 37);
-            button9.Name = "button9";
-            button9.Size = new Size(37, 28);
-            button9.TabIndex = 2;
-            button9.Text = "U";
-            button9.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
