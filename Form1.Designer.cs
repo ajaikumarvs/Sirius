@@ -1,4 +1,6 @@
-﻿namespace Sirius
+﻿using ScintillaNET;
+
+namespace Sirius
 {
     partial class Form1
     {
@@ -39,9 +41,13 @@
             button6 = new Button();
             label1 = new Label();
             tableLayoutPanel1 = new TableLayoutPanel();
+            button12 = new Button();
             button7 = new Button();
             button8 = new Button();
             button9 = new Button();
+            button10 = new Button();
+            button11 = new Button();
+            textBox1 = new TextBox();
             panel1 = new Panel();
             menuStrip1 = new MenuStrip();
             fileToolStripMenuItem = new ToolStripMenuItem();
@@ -62,7 +68,9 @@
             toolStripLabel9 = new ToolStripLabel();
             toolStripSeparator3 = new ToolStripSeparator();
             toolStripLabel10 = new ToolStripLabel();
-            scintilla1 = new ScintillaNET.Scintilla();
+            toolStripLabel11 = new ToolStripLabel();
+            toolStripComboBox1 = new ToolStripComboBox();
+            scintilla1 = new Scintilla();
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
             cliplistbox = new ComponentFactory.Krypton.Toolkit.KryptonListBox();
@@ -97,11 +105,13 @@
             flowLayoutPanel1.Controls.Add(button6);
             flowLayoutPanel1.Controls.Add(label1);
             flowLayoutPanel1.Controls.Add(tableLayoutPanel1);
+            flowLayoutPanel1.Controls.Add(textBox1);
             flowLayoutPanel1.Dock = DockStyle.Right;
-            flowLayoutPanel1.Location = new Point(1177, 0);
+            flowLayoutPanel1.Location = new Point(1569, 0);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(101, 597);
+            flowLayoutPanel1.Size = new Size(101, 750);
             flowLayoutPanel1.TabIndex = 0;
+            flowLayoutPanel1.Paint += flowLayoutPanel1_Paint;
             // 
             // button1
             // 
@@ -154,7 +164,7 @@
             button6.Name = "button6";
             button6.Size = new Size(94, 76);
             button6.TabIndex = 5;
-            button6.Text = "button6";
+            button6.Text = "DnD";
             button6.UseVisualStyleBackColor = true;
             // 
             // label1
@@ -172,16 +182,32 @@
             tableLayoutPanel1.ColumnCount = 2;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel1.Controls.Add(button12, 0, 3);
             tableLayoutPanel1.Controls.Add(button7, 0, 0);
             tableLayoutPanel1.Controls.Add(button8, 1, 0);
             tableLayoutPanel1.Controls.Add(button9, 0, 1);
+            tableLayoutPanel1.Controls.Add(button10, 0, 2);
+            tableLayoutPanel1.Controls.Add(button11, 1, 2);
             tableLayoutPanel1.Location = new Point(3, 515);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 2;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel1.Size = new Size(86, 68);
+            tableLayoutPanel1.RowCount = 4;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
+            tableLayoutPanel1.Size = new Size(86, 151);
             tableLayoutPanel1.TabIndex = 7;
+            // 
+            // button12
+            // 
+            button12.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            button12.Location = new Point(3, 114);
+            button12.Name = "button12";
+            button12.Size = new Size(37, 28);
+            button12.TabIndex = 5;
+            button12.Text = "Reset";
+            button12.UseVisualStyleBackColor = true;
+            button12.Click += button12_Click;
             // 
             // button7
             // 
@@ -207,20 +233,52 @@
             // button9
             // 
             button9.Font = new Font("Segoe UI", 9F, FontStyle.Underline, GraphicsUnit.Point);
-            button9.Location = new Point(3, 37);
+            button9.Location = new Point(3, 40);
             button9.Name = "button9";
             button9.Size = new Size(37, 28);
             button9.TabIndex = 2;
             button9.Text = "U";
             button9.UseVisualStyleBackColor = true;
             // 
+            // button10
+            // 
+            button10.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            button10.Location = new Point(3, 77);
+            button10.Name = "button10";
+            button10.Size = new Size(37, 28);
+            button10.TabIndex = 3;
+            button10.Text = "+";
+            button10.UseVisualStyleBackColor = true;
+            button10.Click += button10_Click;
+            // 
+            // button11
+            // 
+            button11.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            button11.Location = new Point(46, 77);
+            button11.Name = "button11";
+            button11.Size = new Size(37, 28);
+            button11.TabIndex = 4;
+            button11.Text = "-";
+            button11.UseVisualStyleBackColor = true;
+            button11.Click += button11_Click;
+            // 
+            // textBox1
+            // 
+            textBox1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            textBox1.BackColor = Color.Gray;
+            textBox1.Location = new Point(3, 672);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(94, 27);
+            textBox1.TabIndex = 8;
+            textBox1.TextChanged += textBox1_TextChanged;
+            // 
             // panel1
             // 
             panel1.BackColor = Color.Black;
             panel1.Dock = DockStyle.Right;
-            panel1.Location = new Point(1167, 0);
+            panel1.Location = new Point(1559, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(10, 597);
+            panel1.Size = new Size(10, 750);
             panel1.TabIndex = 1;
             // 
             // menuStrip1
@@ -229,9 +287,9 @@
             menuStrip1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             menuStrip1.ImageScalingSize = new Size(20, 20);
             menuStrip1.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, editToolStripMenuItem, viewToolStripMenuItem, projectToolStripMenuItem });
-            menuStrip1.Location = new Point(0, 597);
+            menuStrip1.Location = new Point(0, 750);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(1278, 28);
+            menuStrip1.Size = new Size(1670, 28);
             menuStrip1.TabIndex = 2;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -265,107 +323,120 @@
             toolStrip1.Dock = DockStyle.Bottom;
             toolStrip1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             toolStrip1.ImageScalingSize = new Size(20, 20);
-            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripLabel1, toolStripLabel2, toolStripLabel3, toolStripSeparator1, toolStripLabel4, toolStripLabel5, toolStripLabel6, toolStripSeparator2, toolStripLabel7, toolStripLabel8, toolStripLabel9, toolStripSeparator3, toolStripLabel10 });
-            toolStrip1.Location = new Point(0, 572);
+            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripLabel1, toolStripLabel2, toolStripLabel3, toolStripSeparator1, toolStripLabel4, toolStripLabel5, toolStripLabel6, toolStripSeparator2, toolStripLabel7, toolStripLabel8, toolStripLabel9, toolStripSeparator3, toolStripLabel10, toolStripLabel11, toolStripComboBox1 });
+            toolStrip1.Location = new Point(0, 722);
             toolStrip1.Name = "toolStrip1";
-            toolStrip1.Size = new Size(1167, 25);
+            toolStrip1.Size = new Size(1559, 28);
             toolStrip1.TabIndex = 3;
             toolStrip1.Text = "toolStrip1";
             // 
             // toolStripLabel1
             // 
             toolStripLabel1.Name = "toolStripLabel1";
-            toolStripLabel1.Size = new Size(111, 22);
+            toolStripLabel1.Size = new Size(111, 25);
             toolStripLabel1.Text = "toolStripLabel1";
             // 
             // toolStripLabel2
             // 
             toolStripLabel2.Name = "toolStripLabel2";
-            toolStripLabel2.Size = new Size(111, 22);
+            toolStripLabel2.Size = new Size(111, 25);
             toolStripLabel2.Text = "toolStripLabel2";
             // 
             // toolStripLabel3
             // 
             toolStripLabel3.Name = "toolStripLabel3";
-            toolStripLabel3.Size = new Size(111, 22);
+            toolStripLabel3.Size = new Size(111, 25);
             toolStripLabel3.Text = "toolStripLabel3";
             // 
             // toolStripSeparator1
             // 
             toolStripSeparator1.Name = "toolStripSeparator1";
-            toolStripSeparator1.Size = new Size(6, 25);
+            toolStripSeparator1.Size = new Size(6, 28);
             // 
             // toolStripLabel4
             // 
             toolStripLabel4.Name = "toolStripLabel4";
-            toolStripLabel4.Size = new Size(111, 22);
+            toolStripLabel4.Size = new Size(111, 25);
             toolStripLabel4.Text = "toolStripLabel4";
             // 
             // toolStripLabel5
             // 
             toolStripLabel5.Name = "toolStripLabel5";
-            toolStripLabel5.Size = new Size(16, 22);
+            toolStripLabel5.Size = new Size(16, 25);
             toolStripLabel5.Text = "x";
             // 
             // toolStripLabel6
             // 
             toolStripLabel6.Name = "toolStripLabel6";
-            toolStripLabel6.Size = new Size(111, 22);
+            toolStripLabel6.Size = new Size(111, 25);
             toolStripLabel6.Text = "toolStripLabel6";
             // 
             // toolStripSeparator2
             // 
             toolStripSeparator2.Name = "toolStripSeparator2";
-            toolStripSeparator2.Size = new Size(6, 25);
+            toolStripSeparator2.Size = new Size(6, 28);
             // 
             // toolStripLabel7
             // 
             toolStripLabel7.Name = "toolStripLabel7";
-            toolStripLabel7.Size = new Size(111, 22);
+            toolStripLabel7.Size = new Size(111, 25);
             toolStripLabel7.Text = "toolStripLabel7";
             // 
             // toolStripLabel8
             // 
             toolStripLabel8.Name = "toolStripLabel8";
-            toolStripLabel8.Size = new Size(111, 22);
+            toolStripLabel8.Size = new Size(111, 25);
             toolStripLabel8.Text = "toolStripLabel8";
             // 
             // toolStripLabel9
             // 
             toolStripLabel9.Name = "toolStripLabel9";
-            toolStripLabel9.Size = new Size(111, 22);
+            toolStripLabel9.Size = new Size(111, 25);
             toolStripLabel9.Text = "toolStripLabel9";
             // 
             // toolStripSeparator3
             // 
             toolStripSeparator3.Name = "toolStripSeparator3";
-            toolStripSeparator3.Size = new Size(6, 25);
+            toolStripSeparator3.Size = new Size(6, 28);
             // 
             // toolStripLabel10
             // 
             toolStripLabel10.Name = "toolStripLabel10";
-            toolStripLabel10.Size = new Size(66, 22);
+            toolStripLabel10.Size = new Size(66, 25);
             toolStripLabel10.Text = "0.001 KB";
+            // 
+            // toolStripLabel11
+            // 
+            toolStripLabel11.Name = "toolStripLabel11";
+            toolStripLabel11.Size = new Size(119, 25);
+            toolStripLabel11.Text = "toolStripLabel11";
+            // 
+            // toolStripComboBox1
+            // 
+            toolStripComboBox1.Name = "toolStripComboBox1";
+            toolStripComboBox1.Size = new Size(121, 28);
             // 
             // scintilla1
             // 
             scintilla1.AutoCMaxHeight = 9;
-            scintilla1.BiDirectionality = ScintillaNET.BiDirectionalDisplayType.Disabled;
-            scintilla1.CaretLineBackColor = Color.LightGray;
+            scintilla1.BiDirectionality = BiDirectionalDisplayType.Disabled;
+            scintilla1.CaretLineBackColor = Color.Azure;
             scintilla1.CaretLineVisible = true;
             scintilla1.Dock = DockStyle.Fill;
+            scintilla1.EdgeColor = Color.Black;
             scintilla1.LexerName = null;
             scintilla1.Location = new Point(3, 3);
             scintilla1.Name = "scintilla1";
             scintilla1.ScrollWidth = 57;
-            scintilla1.Size = new Size(1153, 533);
+            scintilla1.Size = new Size(1545, 683);
             scintilla1.TabIndents = true;
             scintilla1.TabIndex = 4;
             scintilla1.UseRightToLeftReadingLayout = false;
-            scintilla1.WrapMode = ScintillaNET.WrapMode.None;
-            scintilla1.TextChanged += scintilla1_TextChanged;
+            scintilla1.WrapMode = WrapMode.None;
             scintilla1.CharAdded += scintilla1_CharAdded;
-               
+            scintilla1.MarginClick += Scintilla1_MarginClick;
+            scintilla1.UpdateUI += scintilla_UpdateUI;
+            scintilla1.TextChanged += scintilla1_TextChanged;
             // 
             // tabControl1
             // 
@@ -375,7 +446,7 @@
             tabControl1.Location = new Point(0, 0);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(1167, 572);
+            tabControl1.Size = new Size(1559, 722);
             tabControl1.TabIndex = 5;
             // 
             // tabPage1
@@ -385,7 +456,7 @@
             tabPage1.Location = new Point(4, 29);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(1159, 539);
+            tabPage1.Size = new Size(1551, 689);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Untitled";
             tabPage1.UseVisualStyleBackColor = true;
@@ -397,6 +468,7 @@
             cliplistbox.Name = "cliplistbox";
             cliplistbox.Size = new Size(221, 516);
             cliplistbox.TabIndex = 5;
+            cliplistbox.Visible = false;
             cliplistbox.SelectedIndexChanged += cliplistbox_SelectedIndexChanged;
             // 
             // tabPage2
@@ -404,7 +476,7 @@
             tabPage2.Location = new Point(4, 29);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(1159, 539);
+            tabPage2.Size = new Size(1551, 689);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Macro";
             tabPage2.UseVisualStyleBackColor = true;
@@ -414,7 +486,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(1278, 625);
+            ClientSize = new Size(1670, 778);
             Controls.Add(tabControl1);
             Controls.Add(toolStrip1);
             Controls.Add(panel1);
@@ -445,6 +517,10 @@
             PerformLayout();
         }
 
+
+
+
+
         #endregion
 
         private ComponentFactory.Krypton.Toolkit.KryptonPalette kryptonPalette1;
@@ -460,7 +536,6 @@
         private TabControl tabControl1;
         private TabPage tabPage1;
         private TabPage tabPage2;
-        private ToolStripLabel toolStripLabel1;
         private ToolStripLabel toolStripLabel2;
         private ToolStripLabel toolStripLabel3;
         private ToolStripSeparator toolStripSeparator1;
@@ -485,5 +560,12 @@
         private Button button7;
         private Button button8;
         private Button button9;
+        private TextBox textBox1;
+        private ToolStripLabel toolStripLabel11;
+        private Button button10;
+        private Button button11;
+        private Button button12;
+        private ToolStripLabel toolStripLabel1;
+        private ToolStripComboBox toolStripComboBox1;
     }
 }
