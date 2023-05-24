@@ -241,7 +241,7 @@ namespace Sirius
         private const int BOOKMARK_MARKER = 3; // Arbitrary. Any valid index would work.
         private void Form1_Load(object sender, EventArgs e)
         {
-            scintilla1.Lexer = Lexer.Cpp;
+            scintilla1.Lexer = Lexer.Xml;
             toolStripComboBox1.Text = scintilla1.LexerLanguage.ToString();
 
 
@@ -341,17 +341,47 @@ namespace Sirius
         //AUTOCOMPLETION (SCINTILLA CHARACTER ADDED EVENT)
         private void scintilla1_CharAdded(object sender, CharAddedEventArgs e)
         {
-            // Find the word start
-            var currentPos = scintilla1.CurrentPosition;
-            var wordStartPos = scintilla1.WordStartPosition(currentPos, true);
+            
+            
+                // Find the word start
+                var currentPos = scintilla1.CurrentPosition;
+                var wordStartPos = scintilla1.WordStartPosition(currentPos, true);
 
-            // Display the autocompletion list
-            var lenEntered = currentPos - wordStartPos;
+                // Display the autocompletion list
+                var lenEntered = currentPos - wordStartPos;
             if (lenEntered > 0)
+                if (scintilla1.Lexer == Lexer.Cpp)
+                {
+
+                    {
+                        if (!scintilla1.AutoCActive)
+                            /*Cpp Keywords */
+                            scintilla1.AutoCShow(lenEntered, "alignas alignof and and_eq asm auto bitand bitor bool break case catch char char8_t char16_t char32_t class compl concept const constexpr const_cast continue decltype default delete do double dynamic_cast else enum explicit export extern false float for friend goto if include inline int long mutable namespace new noexcept not not_eq nullptr operator or or_eq private protected public register reinterpret_cast requires return short signed sizeof static static_assert static_cast struct switch synchronized template this thread_local throw true try typedef typeid typename union unsigned using virtual void volatile wchar_t while xor xor_eq ");
+
+                        /*Cpp Headers */
+                        scintilla1.AutoCShow(lenEntered, "algorithm array atomic bitset cassert cccomplex cctype cerrno cfenv cfloat cintclimits ciso646 climits clocale clocale climits cmath csetjmp csignal cstdalign cstdarg cstdbool cstddef cstdint cstdio cstdlib cstring ctime cuchar cwchar cwctype cxxabi cxxscope exception fenv functional future initializer_list iomanip ios iosfwd iostream istream iterator limits list locale map memory mutex new numeric ostream queue random ratio regex set shared_mutex sstream stack stdalign stdarg stdatomic stdbool stddef stdexcept stdint stdio stdlib stdnoreturn stdstring stdtype_traits system_error tgmath thread tuple typeindex typeinfo type_traits unordered_map unordered_set utility valarray vector version");
+                        //scintilla1.AutoCShow(lenEntered, "");
+                    }
+                }
+
+            if( scintilla1.Lexer == Lexer.Xml)
             {
-                if (!scintilla1.AutoCActive)
-                    scintilla1.AutoCShow(lenEntered, "abstract as base break case catch checked continue default delegate do else event explicit extern false finally fixed for foreach goto if implicit in interface internal is lock namespace new null object operator out override params private protected public readonly ref return sealed sizeof stackalloc switch this throw true try typeof unchecked unsafe using virtual while");
+                
+                {
+                    if (!scintilla1.AutoCActive)
+                        /*XML Elements */
+                        scintilla1.AutoCShow(lenEntered, "<xml> <element> <attribute> <value> <data> <text> <comment> <cdata> <root> <body> <head> <title> <link> <image> <table> <row> <column> <list> <item> <namespace> <schema> <document> <header> <footer> <section> <paragraph> <emphasis> <strong> <code> <quote> <anchor> <url> <date> <time>");
+                    /*XML Attributes */
+                    //scintilla1.AutoCShow(lenEntered, "id name value type src href width height style class target rel required min max pattern placeholder checked disabled readonly selected");                    
+                    //scintilla1.AutoCShow(lenEntered, "</xml> </element> </attribute> </value> </data> </text> </comment> </cdata> </root> </body> </head> </title> </link> </image> </table> </row> </column> </list> </item> </namespace> </schema> </document> </header> </footer> </section> </paragraph> </emphasis> </strong> </code> </quote> </anchor> </url> </date> </time>");
+                }
+
+
             }
+           
+
+            
+           
         }
 
         //BRACE MATCHING -------------------------------------------------------------------------------------------------------
