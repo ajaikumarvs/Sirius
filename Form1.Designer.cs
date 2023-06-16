@@ -73,14 +73,21 @@ namespace Sirius
             scintilla1 = new Scintilla();
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
+            tabControl2 = new TabControl();
+            tabPage3 = new TabPage();
+            scintilla2 = new Scintilla();
+            tabPage4 = new TabPage();
             cliplistbox = new ComponentFactory.Krypton.Toolkit.KryptonListBox();
             tabPage2 = new TabPage();
+            tabPage5 = new TabPage();
             flowLayoutPanel1.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             menuStrip1.SuspendLayout();
             toolStrip1.SuspendLayout();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
+            tabControl2.SuspendLayout();
+            tabPage3.SuspendLayout();
             SuspendLayout();
             // 
             // kryptonPalette1
@@ -107,9 +114,9 @@ namespace Sirius
             flowLayoutPanel1.Controls.Add(tableLayoutPanel1);
             flowLayoutPanel1.Controls.Add(textBox1);
             flowLayoutPanel1.Dock = DockStyle.Right;
-            flowLayoutPanel1.Location = new Point(1569, 0);
+            flowLayoutPanel1.Location = new Point(1065, 0);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(101, 750);
+            flowLayoutPanel1.Size = new Size(101, 806);
             flowLayoutPanel1.TabIndex = 0;
             flowLayoutPanel1.Paint += flowLayoutPanel1_Paint;
             // 
@@ -276,9 +283,9 @@ namespace Sirius
             // 
             panel1.BackColor = Color.Black;
             panel1.Dock = DockStyle.Right;
-            panel1.Location = new Point(1559, 0);
+            panel1.Location = new Point(1055, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(10, 750);
+            panel1.Size = new Size(10, 806);
             panel1.TabIndex = 1;
             // 
             // menuStrip1
@@ -287,9 +294,9 @@ namespace Sirius
             menuStrip1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             menuStrip1.ImageScalingSize = new Size(20, 20);
             menuStrip1.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, editToolStripMenuItem, viewToolStripMenuItem, projectToolStripMenuItem });
-            menuStrip1.Location = new Point(0, 750);
+            menuStrip1.Location = new Point(0, 806);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(1670, 28);
+            menuStrip1.Size = new Size(1166, 28);
             menuStrip1.TabIndex = 2;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -324,91 +331,91 @@ namespace Sirius
             toolStrip1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             toolStrip1.ImageScalingSize = new Size(20, 20);
             toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripLabel1, toolStripLabel2, toolStripLabel3, toolStripSeparator1, toolStripLabel4, toolStripLabel5, toolStripLabel6, toolStripSeparator2, toolStripLabel7, toolStripLabel8, toolStripLabel9, toolStripSeparator3, toolStripLabel10, toolStripLabel11, toolStripComboBox1 });
-            toolStrip1.Location = new Point(0, 722);
+            toolStrip1.Location = new Point(0, 774);
             toolStrip1.Name = "toolStrip1";
-            toolStrip1.Size = new Size(1559, 28);
+            toolStrip1.Size = new Size(1055, 32);
             toolStrip1.TabIndex = 3;
             toolStrip1.Text = "toolStrip1";
             // 
             // toolStripLabel1
             // 
             toolStripLabel1.Name = "toolStripLabel1";
-            toolStripLabel1.Size = new Size(111, 25);
+            toolStripLabel1.Size = new Size(111, 29);
             toolStripLabel1.Text = "toolStripLabel1";
             // 
             // toolStripLabel2
             // 
             toolStripLabel2.Name = "toolStripLabel2";
-            toolStripLabel2.Size = new Size(111, 25);
+            toolStripLabel2.Size = new Size(111, 29);
             toolStripLabel2.Text = "toolStripLabel2";
             // 
             // toolStripLabel3
             // 
             toolStripLabel3.Name = "toolStripLabel3";
-            toolStripLabel3.Size = new Size(111, 25);
+            toolStripLabel3.Size = new Size(111, 29);
             toolStripLabel3.Text = "toolStripLabel3";
             // 
             // toolStripSeparator1
             // 
             toolStripSeparator1.Name = "toolStripSeparator1";
-            toolStripSeparator1.Size = new Size(6, 28);
+            toolStripSeparator1.Size = new Size(6, 32);
             // 
             // toolStripLabel4
             // 
             toolStripLabel4.Name = "toolStripLabel4";
-            toolStripLabel4.Size = new Size(111, 25);
+            toolStripLabel4.Size = new Size(111, 29);
             toolStripLabel4.Text = "toolStripLabel4";
             // 
             // toolStripLabel5
             // 
             toolStripLabel5.Name = "toolStripLabel5";
-            toolStripLabel5.Size = new Size(16, 25);
+            toolStripLabel5.Size = new Size(16, 29);
             toolStripLabel5.Text = "x";
             // 
             // toolStripLabel6
             // 
             toolStripLabel6.Name = "toolStripLabel6";
-            toolStripLabel6.Size = new Size(111, 25);
+            toolStripLabel6.Size = new Size(111, 29);
             toolStripLabel6.Text = "toolStripLabel6";
             // 
             // toolStripSeparator2
             // 
             toolStripSeparator2.Name = "toolStripSeparator2";
-            toolStripSeparator2.Size = new Size(6, 28);
+            toolStripSeparator2.Size = new Size(6, 32);
             // 
             // toolStripLabel7
             // 
             toolStripLabel7.Name = "toolStripLabel7";
-            toolStripLabel7.Size = new Size(111, 25);
+            toolStripLabel7.Size = new Size(111, 29);
             toolStripLabel7.Text = "toolStripLabel7";
             // 
             // toolStripLabel8
             // 
             toolStripLabel8.Name = "toolStripLabel8";
-            toolStripLabel8.Size = new Size(111, 25);
+            toolStripLabel8.Size = new Size(111, 29);
             toolStripLabel8.Text = "toolStripLabel8";
             // 
             // toolStripLabel9
             // 
             toolStripLabel9.Name = "toolStripLabel9";
-            toolStripLabel9.Size = new Size(111, 25);
+            toolStripLabel9.Size = new Size(111, 29);
             toolStripLabel9.Text = "toolStripLabel9";
             // 
             // toolStripSeparator3
             // 
             toolStripSeparator3.Name = "toolStripSeparator3";
-            toolStripSeparator3.Size = new Size(6, 28);
+            toolStripSeparator3.Size = new Size(6, 32);
             // 
             // toolStripLabel10
             // 
             toolStripLabel10.Name = "toolStripLabel10";
-            toolStripLabel10.Size = new Size(66, 25);
+            toolStripLabel10.Size = new Size(66, 29);
             toolStripLabel10.Text = "0.001 KB";
             // 
             // toolStripLabel11
             // 
             toolStripLabel11.Name = "toolStripLabel11";
-            toolStripLabel11.Size = new Size(119, 25);
+            toolStripLabel11.Size = new Size(119, 20);
             toolStripLabel11.Text = "toolStripLabel11";
             // 
             // toolStripComboBox1
@@ -420,7 +427,7 @@ namespace Sirius
             // 
             scintilla1.AutoCMaxHeight = 9;
             scintilla1.BiDirectionality = BiDirectionalDisplayType.Disabled;
-            scintilla1.CaretLineBackColor = Color.Azure;
+            scintilla1.CaretLineBackColor = Color.MintCream;
             scintilla1.CaretLineVisible = true;
             scintilla1.Dock = DockStyle.Fill;
             scintilla1.EdgeColor = Color.Black;
@@ -428,7 +435,7 @@ namespace Sirius
             scintilla1.Location = new Point(3, 3);
             scintilla1.Name = "scintilla1";
             scintilla1.ScrollWidth = 57;
-            scintilla1.Size = new Size(1545, 683);
+            scintilla1.Size = new Size(1041, 735);
             scintilla1.TabIndents = true;
             scintilla1.TabIndex = 4;
             scintilla1.UseRightToLeftReadingLayout = false;
@@ -437,6 +444,7 @@ namespace Sirius
             scintilla1.MarginClick += Scintilla1_MarginClick;
             scintilla1.UpdateUI += scintilla_UpdateUI;
             scintilla1.TextChanged += scintilla1_TextChanged;
+            scintilla1.Click += scintilla1_Click;
             // 
             // tabControl1
             // 
@@ -446,20 +454,71 @@ namespace Sirius
             tabControl1.Location = new Point(0, 0);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(1559, 722);
+            tabControl1.Size = new Size(1055, 774);
             tabControl1.TabIndex = 5;
             // 
             // tabPage1
             // 
+            tabPage1.Controls.Add(tabControl2);
             tabPage1.Controls.Add(cliplistbox);
             tabPage1.Controls.Add(scintilla1);
             tabPage1.Location = new Point(4, 29);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(1551, 689);
+            tabPage1.Size = new Size(1047, 741);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Untitled";
             tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // tabControl2
+            // 
+            tabControl2.Controls.Add(tabPage3);
+            tabControl2.Controls.Add(tabPage4);
+            tabControl2.Controls.Add(tabPage5);
+            tabControl2.Dock = DockStyle.Bottom;
+            tabControl2.Location = new Point(3, 503);
+            tabControl2.Name = "tabControl2";
+            tabControl2.SelectedIndex = 0;
+            tabControl2.Size = new Size(1041, 235);
+            tabControl2.TabIndex = 7;
+            // 
+            // tabPage3
+            // 
+            tabPage3.Controls.Add(scintilla2);
+            tabPage3.Location = new Point(4, 29);
+            tabPage3.Name = "tabPage3";
+            tabPage3.Padding = new Padding(3);
+            tabPage3.Size = new Size(1033, 202);
+            tabPage3.TabIndex = 0;
+            tabPage3.Text = "Output";
+            tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // scintilla2
+            // 
+            scintilla2.AutoCMaxHeight = 9;
+            scintilla2.BiDirectionality = BiDirectionalDisplayType.Disabled;
+            scintilla2.CaretLineVisible = true;
+            scintilla2.Dock = DockStyle.Fill;
+            scintilla2.LexerName = null;
+            scintilla2.Location = new Point(3, 3);
+            scintilla2.Margin = new Padding(8, 3, 3, 3);
+            scintilla2.Name = "scintilla2";
+            scintilla2.ScrollWidth = 57;
+            scintilla2.Size = new Size(1027, 196);
+            scintilla2.TabIndents = true;
+            scintilla2.TabIndex = 6;
+            scintilla2.UseRightToLeftReadingLayout = false;
+            scintilla2.WrapMode = WrapMode.None;
+            // 
+            // tabPage4
+            // 
+            tabPage4.Location = new Point(4, 29);
+            tabPage4.Name = "tabPage4";
+            tabPage4.Padding = new Padding(3);
+            tabPage4.Size = new Size(1033, 202);
+            tabPage4.TabIndex = 1;
+            tabPage4.Text = "Web (Firefox)";
+            tabPage4.UseVisualStyleBackColor = true;
             // 
             // cliplistbox
             // 
@@ -476,17 +535,26 @@ namespace Sirius
             tabPage2.Location = new Point(4, 29);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(1551, 689);
+            tabPage2.Size = new Size(1047, 741);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Macro";
             tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // tabPage5
+            // 
+            tabPage5.Location = new Point(4, 29);
+            tabPage5.Name = "tabPage5";
+            tabPage5.Size = new Size(1033, 202);
+            tabPage5.TabIndex = 2;
+            tabPage5.Text = "Web (Chromium)";
+            tabPage5.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(1670, 778);
+            ClientSize = new Size(1166, 834);
             Controls.Add(tabControl1);
             Controls.Add(toolStrip1);
             Controls.Add(panel1);
@@ -513,6 +581,8 @@ namespace Sirius
             toolStrip1.PerformLayout();
             tabControl1.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
+            tabControl2.ResumeLayout(false);
+            tabPage3.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -567,5 +637,10 @@ namespace Sirius
         private Button button12;
         private ToolStripLabel toolStripLabel1;
         private ToolStripComboBox toolStripComboBox1;
+        private Scintilla scintilla2;
+        private TabControl tabControl2;
+        private TabPage tabPage3;
+        private TabPage tabPage4;
+        private TabPage tabPage5;
     }
 }

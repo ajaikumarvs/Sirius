@@ -20,7 +20,6 @@ namespace Sirius
 
 
 
-
             scintilla1.Styles[Style.BraceLight].BackColor = Color.LightGray;
             scintilla1.Styles[Style.BraceLight].ForeColor = Color.BlueViolet;
             scintilla1.Styles[Style.BraceBad].ForeColor = Color.Red;
@@ -241,7 +240,7 @@ namespace Sirius
         private const int BOOKMARK_MARKER = 3; // Arbitrary. Any valid index would work.
         private void Form1_Load(object sender, EventArgs e)
         {
-            scintilla1.Lexer = Lexer.Xml;
+            scintilla1.Lexer = Lexer.Cpp;
             toolStripComboBox1.Text = scintilla1.LexerLanguage.ToString();
 
 
@@ -341,14 +340,14 @@ namespace Sirius
         //AUTOCOMPLETION (SCINTILLA CHARACTER ADDED EVENT)
         private void scintilla1_CharAdded(object sender, CharAddedEventArgs e)
         {
-            
-            
-                // Find the word start
-                var currentPos = scintilla1.CurrentPosition;
-                var wordStartPos = scintilla1.WordStartPosition(currentPos, true);
 
-                // Display the autocompletion list
-                var lenEntered = currentPos - wordStartPos;
+
+            // Find the word start
+            var currentPos = scintilla1.CurrentPosition;
+            var wordStartPos = scintilla1.WordStartPosition(currentPos, true);
+
+            // Display the autocompletion list
+            var lenEntered = currentPos - wordStartPos;
             if (lenEntered > 0)
                 if (scintilla1.Lexer == Lexer.Cpp)
                 {
@@ -364,9 +363,9 @@ namespace Sirius
                     }
                 }
 
-            if( scintilla1.Lexer == Lexer.Xml)
+            if (scintilla1.Lexer == Lexer.Xml)
             {
-                
+
                 {
                     if (!scintilla1.AutoCActive)
                         /*XML Elements */
@@ -378,10 +377,10 @@ namespace Sirius
 
 
             }
-           
 
-            
-           
+
+
+
         }
 
         //BRACE MATCHING -------------------------------------------------------------------------------------------------------
@@ -525,6 +524,11 @@ namespace Sirius
         private void button12_Click(object sender, EventArgs e)
         {
             scintilla1.Zoom = 0;
+        }
+
+        private void scintilla1_Click(object sender, EventArgs e)
+        {
+
         }
 
 
