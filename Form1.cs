@@ -4,6 +4,9 @@ using System.ComponentModel;
 using System.Runtime.InteropServices;
 using System.Windows;
 using System.Windows.Forms;
+using CefSharp;
+using CefSharp.WinForms;
+using Microsoft.VisualBasic.ApplicationServices;
 
 namespace Sirius
 
@@ -17,6 +20,8 @@ namespace Sirius
             InitializeComponent();
 
 
+            chrome1.LoadUrl("C:\\Users\\ajaik\\Documents\\Sirius\\test.html");
+            //chrome1.LoadUrl("http://youtube.com");
 
 
 
@@ -531,6 +536,29 @@ namespace Sirius
 
         }
 
+        private void button4_Click(object sender, EventArgs e)
+        {
+            //chrome1.ShowDevTools();
+            //chrome1.ShowDevToolsDocked(tabControl2,chrome1.ToString(),DockStyle.Bottom,0,0);
+
+        }
+
+        private void button16_Click(object sender, EventArgs e)
+        {
+            tabControl2.Height = tabControl2.Height + 20;
+
+        }
+
+        private void button17_Click(object sender, EventArgs e)
+        {
+            tabControl2.Height = tabControl2.Height - 20;
+        }
+
+        private void button18_Click(object sender, EventArgs e)
+        {
+            tabControl2.Height = this.Height / 2 - 250;
+        }
+
 
 
 
@@ -575,6 +603,8 @@ namespace Sirius
         //END OF MARGIN CLICK MODULE --------------------------------------------------------------------------------
         */
     }
+
+
 
 }
 

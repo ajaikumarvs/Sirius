@@ -48,6 +48,13 @@ namespace Sirius
             button10 = new Button();
             button11 = new Button();
             textBox1 = new TextBox();
+            tableLayoutPanel3 = new TableLayoutPanel();
+            button15 = new Button();
+            button16 = new Button();
+            button17 = new Button();
+            button18 = new Button();
+            button19 = new Button();
+            button20 = new Button();
             panel1 = new Panel();
             menuStrip1 = new MenuStrip();
             fileToolStripMenuItem = new ToolStripMenuItem();
@@ -77,17 +84,23 @@ namespace Sirius
             tabPage3 = new TabPage();
             scintilla2 = new Scintilla();
             tabPage4 = new TabPage();
+            chrome1 = new CefSharp.WinForms.ChromiumWebBrowser();
             cliplistbox = new ComponentFactory.Krypton.Toolkit.KryptonListBox();
             tabPage2 = new TabPage();
-            tabPage5 = new TabPage();
+            tableLayoutPanel2 = new TableLayoutPanel();
+            button13 = new Button();
+            button14 = new Button();
             flowLayoutPanel1.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
+            tableLayoutPanel3.SuspendLayout();
             menuStrip1.SuspendLayout();
             toolStrip1.SuspendLayout();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             tabControl2.SuspendLayout();
             tabPage3.SuspendLayout();
+            tabPage4.SuspendLayout();
+            tableLayoutPanel2.SuspendLayout();
             SuspendLayout();
             // 
             // kryptonPalette1
@@ -113,10 +126,11 @@ namespace Sirius
             flowLayoutPanel1.Controls.Add(label1);
             flowLayoutPanel1.Controls.Add(tableLayoutPanel1);
             flowLayoutPanel1.Controls.Add(textBox1);
+            flowLayoutPanel1.Controls.Add(tableLayoutPanel3);
             flowLayoutPanel1.Dock = DockStyle.Right;
-            flowLayoutPanel1.Location = new Point(1065, 0);
+            flowLayoutPanel1.Location = new Point(1124, 0);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(101, 806);
+            flowLayoutPanel1.Size = new Size(101, 944);
             flowLayoutPanel1.TabIndex = 0;
             flowLayoutPanel1.Paint += flowLayoutPanel1_Paint;
             // 
@@ -155,6 +169,7 @@ namespace Sirius
             button4.TabIndex = 3;
             button4.Text = "Sync";
             button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
             // 
             // button5
             // 
@@ -279,13 +294,97 @@ namespace Sirius
             textBox1.TabIndex = 8;
             textBox1.TextChanged += textBox1_TextChanged;
             // 
+            // tableLayoutPanel3
+            // 
+            tableLayoutPanel3.ColumnCount = 2;
+            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel3.Controls.Add(button15, 0, 3);
+            tableLayoutPanel3.Controls.Add(button16, 0, 0);
+            tableLayoutPanel3.Controls.Add(button17, 1, 0);
+            tableLayoutPanel3.Controls.Add(button18, 0, 1);
+            tableLayoutPanel3.Controls.Add(button19, 0, 2);
+            tableLayoutPanel3.Controls.Add(button20, 1, 2);
+            tableLayoutPanel3.Location = new Point(3, 705);
+            tableLayoutPanel3.Name = "tableLayoutPanel3";
+            tableLayoutPanel3.RowCount = 4;
+            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
+            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
+            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
+            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
+            tableLayoutPanel3.Size = new Size(86, 151);
+            tableLayoutPanel3.TabIndex = 9;
+            // 
+            // button15
+            // 
+            button15.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            button15.Location = new Point(3, 114);
+            button15.Name = "button15";
+            button15.Size = new Size(37, 28);
+            button15.TabIndex = 5;
+            button15.Text = "Reset";
+            button15.UseVisualStyleBackColor = true;
+            // 
+            // button16
+            // 
+            button16.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            button16.Location = new Point(3, 3);
+            button16.Name = "button16";
+            button16.Size = new Size(37, 28);
+            button16.TabIndex = 0;
+            button16.Text = "+";
+            button16.UseVisualStyleBackColor = true;
+            button16.Click += button16_Click;
+            // 
+            // button17
+            // 
+            button17.Font = new Font("Lucida Bright", 9F, FontStyle.Italic, GraphicsUnit.Point);
+            button17.Location = new Point(46, 3);
+            button17.Name = "button17";
+            button17.Size = new Size(37, 28);
+            button17.TabIndex = 1;
+            button17.Text = "-";
+            button17.UseVisualStyleBackColor = true;
+            button17.Click += button17_Click;
+            // 
+            // button18
+            // 
+            button18.Font = new Font("Segoe UI", 9F, FontStyle.Underline, GraphicsUnit.Point);
+            button18.Location = new Point(3, 40);
+            button18.Name = "button18";
+            button18.Size = new Size(37, 28);
+            button18.TabIndex = 2;
+            button18.Text = "U";
+            button18.UseVisualStyleBackColor = true;
+            button18.Click += button18_Click;
+            // 
+            // button19
+            // 
+            button19.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            button19.Location = new Point(3, 77);
+            button19.Name = "button19";
+            button19.Size = new Size(37, 28);
+            button19.TabIndex = 3;
+            button19.Text = "+";
+            button19.UseVisualStyleBackColor = true;
+            // 
+            // button20
+            // 
+            button20.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            button20.Location = new Point(46, 77);
+            button20.Name = "button20";
+            button20.Size = new Size(37, 28);
+            button20.TabIndex = 4;
+            button20.Text = "-";
+            button20.UseVisualStyleBackColor = true;
+            // 
             // panel1
             // 
             panel1.BackColor = Color.Black;
             panel1.Dock = DockStyle.Right;
-            panel1.Location = new Point(1055, 0);
+            panel1.Location = new Point(1114, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(10, 806);
+            panel1.Size = new Size(10, 944);
             panel1.TabIndex = 1;
             // 
             // menuStrip1
@@ -294,9 +393,9 @@ namespace Sirius
             menuStrip1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             menuStrip1.ImageScalingSize = new Size(20, 20);
             menuStrip1.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, editToolStripMenuItem, viewToolStripMenuItem, projectToolStripMenuItem });
-            menuStrip1.Location = new Point(0, 806);
+            menuStrip1.Location = new Point(0, 944);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(1166, 28);
+            menuStrip1.Size = new Size(1225, 28);
             menuStrip1.TabIndex = 2;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -331,9 +430,9 @@ namespace Sirius
             toolStrip1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             toolStrip1.ImageScalingSize = new Size(20, 20);
             toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripLabel1, toolStripLabel2, toolStripLabel3, toolStripSeparator1, toolStripLabel4, toolStripLabel5, toolStripLabel6, toolStripSeparator2, toolStripLabel7, toolStripLabel8, toolStripLabel9, toolStripSeparator3, toolStripLabel10, toolStripLabel11, toolStripComboBox1 });
-            toolStrip1.Location = new Point(0, 774);
+            toolStrip1.Location = new Point(0, 912);
             toolStrip1.Name = "toolStrip1";
-            toolStrip1.Size = new Size(1055, 32);
+            toolStrip1.Size = new Size(1114, 32);
             toolStrip1.TabIndex = 3;
             toolStrip1.Text = "toolStrip1";
             // 
@@ -435,7 +534,7 @@ namespace Sirius
             scintilla1.Location = new Point(3, 3);
             scintilla1.Name = "scintilla1";
             scintilla1.ScrollWidth = 57;
-            scintilla1.Size = new Size(1041, 735);
+            scintilla1.Size = new Size(1100, 873);
             scintilla1.TabIndents = true;
             scintilla1.TabIndex = 4;
             scintilla1.UseRightToLeftReadingLayout = false;
@@ -454,7 +553,7 @@ namespace Sirius
             tabControl1.Location = new Point(0, 0);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(1055, 774);
+            tabControl1.Size = new Size(1114, 912);
             tabControl1.TabIndex = 5;
             // 
             // tabPage1
@@ -465,7 +564,7 @@ namespace Sirius
             tabPage1.Location = new Point(4, 29);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(1047, 741);
+            tabPage1.Size = new Size(1106, 879);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Untitled";
             tabPage1.UseVisualStyleBackColor = true;
@@ -474,12 +573,11 @@ namespace Sirius
             // 
             tabControl2.Controls.Add(tabPage3);
             tabControl2.Controls.Add(tabPage4);
-            tabControl2.Controls.Add(tabPage5);
             tabControl2.Dock = DockStyle.Bottom;
-            tabControl2.Location = new Point(3, 503);
+            tabControl2.Location = new Point(3, 542);
             tabControl2.Name = "tabControl2";
             tabControl2.SelectedIndex = 0;
-            tabControl2.Size = new Size(1041, 235);
+            tabControl2.Size = new Size(1100, 334);
             tabControl2.TabIndex = 7;
             // 
             // tabPage3
@@ -488,7 +586,7 @@ namespace Sirius
             tabPage3.Location = new Point(4, 29);
             tabPage3.Name = "tabPage3";
             tabPage3.Padding = new Padding(3);
-            tabPage3.Size = new Size(1033, 202);
+            tabPage3.Size = new Size(1092, 301);
             tabPage3.TabIndex = 0;
             tabPage3.Text = "Output";
             tabPage3.UseVisualStyleBackColor = true;
@@ -504,7 +602,7 @@ namespace Sirius
             scintilla2.Margin = new Padding(8, 3, 3, 3);
             scintilla2.Name = "scintilla2";
             scintilla2.ScrollWidth = 57;
-            scintilla2.Size = new Size(1027, 196);
+            scintilla2.Size = new Size(1086, 295);
             scintilla2.TabIndents = true;
             scintilla2.TabIndex = 6;
             scintilla2.UseRightToLeftReadingLayout = false;
@@ -512,13 +610,22 @@ namespace Sirius
             // 
             // tabPage4
             // 
+            tabPage4.Controls.Add(chrome1);
             tabPage4.Location = new Point(4, 29);
             tabPage4.Name = "tabPage4";
-            tabPage4.Padding = new Padding(3);
-            tabPage4.Size = new Size(1033, 202);
+            tabPage4.Size = new Size(1092, 301);
             tabPage4.TabIndex = 1;
-            tabPage4.Text = "Web (Firefox)";
+            tabPage4.Text = "Web Debugger";
             tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // chrome1
+            // 
+            chrome1.ActivateBrowserOnCreation = false;
+            chrome1.Dock = DockStyle.Fill;
+            chrome1.Location = new Point(0, 0);
+            chrome1.Name = "chrome1";
+            chrome1.Size = new Size(1092, 301);
+            chrome1.TabIndex = 0;
             // 
             // cliplistbox
             // 
@@ -535,26 +642,53 @@ namespace Sirius
             tabPage2.Location = new Point(4, 29);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(1047, 741);
+            tabPage2.Size = new Size(1106, 879);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Macro";
             tabPage2.UseVisualStyleBackColor = true;
             // 
-            // tabPage5
+            // tableLayoutPanel2
             // 
-            tabPage5.Location = new Point(4, 29);
-            tabPage5.Name = "tabPage5";
-            tabPage5.Size = new Size(1033, 202);
-            tabPage5.TabIndex = 2;
-            tabPage5.Text = "Web (Chromium)";
-            tabPage5.UseVisualStyleBackColor = true;
+            tableLayoutPanel2.ColumnCount = 2;
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel2.Controls.Add(button13, 0, 3);
+            tableLayoutPanel2.Location = new Point(0, 0);
+            tableLayoutPanel2.Name = "tableLayoutPanel2";
+            tableLayoutPanel2.RowCount = 4;
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel2.Size = new Size(200, 100);
+            tableLayoutPanel2.TabIndex = 0;
+            // 
+            // button13
+            // 
+            button13.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            button13.Location = new Point(3, 63);
+            button13.Name = "button13";
+            button13.Size = new Size(37, 28);
+            button13.TabIndex = 5;
+            button13.Text = "Reset";
+            button13.UseVisualStyleBackColor = true;
+            // 
+            // button14
+            // 
+            button14.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            button14.Location = new Point(3, 3);
+            button14.Name = "button14";
+            button14.Size = new Size(37, 28);
+            button14.TabIndex = 0;
+            button14.Text = "B";
+            button14.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(1166, 834);
+            ClientSize = new Size(1225, 972);
             Controls.Add(tabControl1);
             Controls.Add(toolStrip1);
             Controls.Add(panel1);
@@ -575,6 +709,7 @@ namespace Sirius
             flowLayoutPanel1.ResumeLayout(false);
             flowLayoutPanel1.PerformLayout();
             tableLayoutPanel1.ResumeLayout(false);
+            tableLayoutPanel3.ResumeLayout(false);
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             toolStrip1.ResumeLayout(false);
@@ -583,6 +718,8 @@ namespace Sirius
             tabPage1.ResumeLayout(false);
             tabControl2.ResumeLayout(false);
             tabPage3.ResumeLayout(false);
+            tabPage4.ResumeLayout(false);
+            tableLayoutPanel2.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -641,6 +778,16 @@ namespace Sirius
         private TabControl tabControl2;
         private TabPage tabPage3;
         private TabPage tabPage4;
-        private TabPage tabPage5;
+        private CefSharp.WinForms.ChromiumWebBrowser chrome1;
+        private TableLayoutPanel tableLayoutPanel3;
+        private Button button15;
+        private Button button16;
+        private Button button17;
+        private Button button18;
+        private Button button19;
+        private Button button20;
+        private TableLayoutPanel tableLayoutPanel2;
+        private Button button13;
+        private Button button14;
     }
 }
