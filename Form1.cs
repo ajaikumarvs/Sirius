@@ -7,6 +7,8 @@ using System.Windows.Forms;
 using CefSharp;
 using CefSharp.WinForms;
 using Microsoft.VisualBasic.ApplicationServices;
+using CefSharp.WinForms.Internals;
+using System.Security.Cryptography.X509Certificates;
 
 namespace Sirius
 
@@ -14,13 +16,21 @@ namespace Sirius
 {
     public partial class Form1 : KryptonForm
     {
+        public static string transfercode = "";
+        public string LabelText
+        {
+            get { return label2.Text; }
+            set { label2.Text = value; }
+        }
+
+
+
 
         public Form1()
         {
             InitializeComponent();
 
-
-            chrome1.LoadUrl("C:\\Users\\ajaik\\Documents\\Sirius\\test.html");
+            //chrome1.LoadUrl("C:\\Users\\ajaik\\Documents\\Sirius\\test.html");
             //chrome1.LoadUrl("http://youtube.com");
 
 
@@ -40,6 +50,7 @@ namespace Sirius
             scintilla1.MouseSelectionRectangularSwitch = true;
             scintilla1.AdditionalSelectionTyping = true;
             scintilla1.VirtualSpaceOptions = VirtualSpace.RectangularSelection;
+
 
 
             //CPP PROPERTIES ----------------------------------------------
@@ -64,7 +75,7 @@ namespace Sirius
             scintilla1.Styles[Style.Cpp.StringEol].BackColor = Color.Pink;
             scintilla1.Styles[Style.Cpp.Operator].ForeColor = Color.Purple;
             scintilla1.Styles[Style.Cpp.Preprocessor].ForeColor = Color.Maroon;
-            scintilla1.Lexer = Lexer.Cpp;
+
 
             // Set the keywords
             scintilla1.SetKeywords(0, "abstract as base break case catch checked continue default delegate do else event explicit extern false finally fixed for foreach goto if implicit in interface internal is lock namespace new null object operator out override params private protected public readonly ref return sealed sizeof stackalloc switch this throw true try typeof unchecked unsafe using virtual while");
@@ -187,7 +198,8 @@ namespace Sirius
             scintilla1.StyleClearAll();
 
             // Set the XML Lexer
-            scintilla1.Lexer = Lexer.Xml;
+            //scintilla1.Lexer = Lexer.Xml;
+
 
             // Show line numbers
             scintilla1.Margins[0].Width = 20;
@@ -240,13 +252,39 @@ namespace Sirius
             //END OF XML PROPERTIES ---------------------------------------------------------------------------------------
 
 
+            //Python PROPERTIES ----------------------------------------------
+            // Configuring the default style with properties
+            // we have common to every lexer style saves time.
+            scintilla1.StyleResetDefault();
+            scintilla1.Styles[Style.Default].Font = "Consolas";
+            scintilla1.Styles[Style.Default].Size = 10;
+            scintilla1.StyleClearAll();
+
+            // Configure the Python lexer styles
+            scintilla1.Styles[Style.Python.Default].ForeColor = Color.Black;
+            scintilla1.Styles[Style.Python.CommentLine].ForeColor = Color.Green;
+            scintilla1.Styles[Style.Python.CommentBlock].ForeColor = Color.Green;
+            scintilla1.Styles[Style.Python.Number].ForeColor = Color.Red;
+            scintilla1.Styles[Style.Python.String].ForeColor = Color.Blue;
+            scintilla1.Styles[Style.Python.Character].ForeColor = Color.Blue;
+            scintilla1.Styles[Style.Python.Word].ForeColor = Color.DarkBlue;
+            scintilla1.Styles[Style.Python.Word2].ForeColor = Color.DarkBlue;
+            scintilla1.Styles[Style.Python.Decorator].ForeColor = Color.DarkCyan;
+
+
+            // Set the keywords
+            scintilla1.SetKeywords(0, "False None True and as assert async await break class continue def del elif else except finally for from global if import in is lambda nonlocal not or pass raise return try while with yield");
+
+            //END of Python Properties ----------------------------------------------
+
         }
         private const int BOOKMARK_MARGIN = 1; // Conventionally the symbol margin
         private const int BOOKMARK_MARKER = 3; // Arbitrary. Any valid index would work.
         private void Form1_Load(object sender, EventArgs e)
         {
-            scintilla1.Lexer = Lexer.Cpp;
-            toolStripComboBox1.Text = scintilla1.LexerLanguage.ToString();
+
+
+            //combobox1.Text = scintilla1.LexerLanguage.ToString();
 
 
 
@@ -309,8 +347,10 @@ namespace Sirius
             const int padding = 2;
             scintilla1.Margins[0].Width = scintilla1.TextWidth(Style.LineNumber, new string('9', maxLineNumberCharLength + 1)) + padding;
             this.maxLineNumberCharLength = maxLineNumberCharLength;
+        
 
 
+            
         }
 
         private void Form1_Changed(object sender, EventArgs e)
@@ -383,6 +423,31 @@ namespace Sirius
 
             }
 
+            //LIVE DEBUG CODE -------------------------------------------------------------------------------------------------
+            if (label3.Text == "livedebugyes" && scintilla1.LexerName == "hypertext")
+            {
+                try
+                {
+                    // Create a new file and open it for writing
+                    using (StreamWriter writer = new StreamWriter(label2.Text))
+                    {
+                        // Write data to the file
+                        writer.WriteLine(scintilla1.Text);
+
+                        // You can also use writer.Write() to write data without a new line character
+                        // writer.Write("Some text");
+                    }
+
+                    Console.WriteLine("Data written to the file successfully!");
+                    chrome1.LoadUrl(label2.Text);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Failed to write data to the file: " + ex.Message);
+                }
+                
+            }
+            //END OF LIVE DEBUG CODE --------------------------------------------------------------------------------------
 
 
 
@@ -420,6 +485,7 @@ namespace Sirius
 
         private void scintilla_UpdateUI(object sender, UpdateUIEventArgs e)
         {
+            toolStripLabel1.Text = scintilla1.LexerName;
             // Has the caret changed position?
             var caretPos = scintilla1.CurrentPosition;
             if (lastCaretPos != caretPos)
@@ -468,7 +534,7 @@ namespace Sirius
 
             }
             //END OF CURSOR POSITION INDICATOR ----------------------------------------------------------------------------
-
+           
         }
 
         private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
@@ -538,8 +604,22 @@ namespace Sirius
 
         private void button4_Click(object sender, EventArgs e)
         {
-            //chrome1.ShowDevTools();
-            //chrome1.ShowDevToolsDocked(tabControl2,chrome1.ToString(),DockStyle.Bottom,0,0);
+            transfercode = scintilla1.Text;
+
+
+
+
+            if (label2.Text == "workspaceempty")
+            {
+
+                MessageBox.Show("A project workspace should be set to run the code.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                Form2 form2 = new Form2();
+                form2.Show();
+                label2.Text = "readytorecieve";
+
+            }
+            label2.Text = Form2.filapathfordebug;
+
 
         }
 
@@ -557,6 +637,126 @@ namespace Sirius
         private void button18_Click(object sender, EventArgs e)
         {
             tabControl2.Height = this.Height / 2 - 250;
+        }
+
+        private void scintilla3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            scintilla1.Text = "";
+        }
+
+        private void comboBox2_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            if (comboBox2.SelectedItem == "C")
+            {
+                scintilla1.Lexer = Lexer.Cpp;
+            }
+
+            if (comboBox2.SelectedItem == "C++")
+            {
+                scintilla1.Lexer = Lexer.Cpp;
+            }
+
+
+            if (comboBox2.SelectedItem == "Python")
+            {
+                scintilla1.Lexer = Lexer.Python;
+            }
+
+            if (comboBox2.SelectedItem == "HTML")
+            {
+                scintilla1.Lexer = Lexer.Html;
+            }
+
+            if (comboBox2.SelectedItem == "CSS")
+            {
+                scintilla1.Lexer = Lexer.Css;
+
+            }
+
+            if (comboBox2.SelectedItem == "Lua")
+            {
+                scintilla1.Lexer = Lexer.Lua;
+
+            }
+        }
+
+        private void scintilla2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button19_Click(object sender, EventArgs e)
+        {
+            chrome1.ShowDevTools();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+            if (label2.Text == "workspaceempty")
+            {
+                MessageBox.Show("A project workspace should be set to run the code.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                Form2 form2 = new Form2();
+                form2.Show();
+
+            }
+
+            else
+            {
+                try
+                {
+                    // Create a new file and open it for writing
+                    using (StreamWriter writer = new StreamWriter(label2.Text))
+                    {
+                        // Write data to the file
+                        writer.WriteLine(scintilla1.Text);
+                        toolStripLabel1.Text = "File Saved";
+
+                    }
+
+                    Console.WriteLine("Data written to the file successfully!");
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Failed to write data to the file: " + ex.Message);
+                }
+            }
+        }
+
+        public void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            if (label3.Text == "livedebugno")
+            {
+                label3.Text = "livedebugyes";
+            }
+            else if (label3.Text == "livedebugyes")
+            {
+                timer1.Stop();
+
+
+
+            }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if(button5.BackColor== Color.Red)
+            {
+                button5.BackColor = Color.DarkRed;
+                timer1.Start();
+            }
         }
 
 

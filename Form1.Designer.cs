@@ -55,6 +55,7 @@ namespace Sirius
             button18 = new Button();
             button19 = new Button();
             button20 = new Button();
+            comboBox2 = new ComboBox();
             panel1 = new Panel();
             menuStrip1 = new MenuStrip();
             fileToolStripMenuItem = new ToolStripMenuItem();
@@ -76,20 +77,25 @@ namespace Sirius
             toolStripSeparator3 = new ToolStripSeparator();
             toolStripLabel10 = new ToolStripLabel();
             toolStripLabel11 = new ToolStripLabel();
-            toolStripComboBox1 = new ToolStripComboBox();
             scintilla1 = new Scintilla();
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
+            label3 = new Label();
+            label2 = new Label();
             tabControl2 = new TabControl();
             tabPage3 = new TabPage();
             scintilla2 = new Scintilla();
             tabPage4 = new TabPage();
             chrome1 = new CefSharp.WinForms.ChromiumWebBrowser();
+            tabPage5 = new TabPage();
+            kryptonRichTextBox1 = new ComponentFactory.Krypton.Toolkit.KryptonRichTextBox();
+            scintilla3 = new Scintilla();
             cliplistbox = new ComponentFactory.Krypton.Toolkit.KryptonListBox();
             tabPage2 = new TabPage();
             tableLayoutPanel2 = new TableLayoutPanel();
             button13 = new Button();
             button14 = new Button();
+            timer1 = new System.Windows.Forms.Timer(components);
             flowLayoutPanel1.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel3.SuspendLayout();
@@ -100,6 +106,7 @@ namespace Sirius
             tabControl2.SuspendLayout();
             tabPage3.SuspendLayout();
             tabPage4.SuspendLayout();
+            tabPage5.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
             SuspendLayout();
             // 
@@ -127,10 +134,11 @@ namespace Sirius
             flowLayoutPanel1.Controls.Add(tableLayoutPanel1);
             flowLayoutPanel1.Controls.Add(textBox1);
             flowLayoutPanel1.Controls.Add(tableLayoutPanel3);
+            flowLayoutPanel1.Controls.Add(comboBox2);
             flowLayoutPanel1.Dock = DockStyle.Right;
-            flowLayoutPanel1.Location = new Point(1124, 0);
+            flowLayoutPanel1.Location = new Point(1463, 0);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(101, 944);
+            flowLayoutPanel1.Size = new Size(101, 954);
             flowLayoutPanel1.TabIndex = 0;
             flowLayoutPanel1.Paint += flowLayoutPanel1_Paint;
             // 
@@ -142,6 +150,7 @@ namespace Sirius
             button1.TabIndex = 0;
             button1.Text = "New";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // button2
             // 
@@ -158,8 +167,9 @@ namespace Sirius
             button3.Name = "button3";
             button3.Size = new Size(94, 76);
             button3.TabIndex = 2;
-            button3.Text = "Compare";
+            button3.Text = "Save";
             button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
             // 
             // button4
             // 
@@ -167,7 +177,7 @@ namespace Sirius
             button4.Name = "button4";
             button4.Size = new Size(94, 76);
             button4.TabIndex = 3;
-            button4.Text = "Sync";
+            button4.Text = "Run";
             button4.UseVisualStyleBackColor = true;
             button4.Click += button4_Click;
             // 
@@ -177,8 +187,9 @@ namespace Sirius
             button5.Name = "button5";
             button5.Size = new Size(94, 76);
             button5.TabIndex = 4;
-            button5.Text = "FIle View";
+            button5.Text = "Live Debug";
             button5.UseVisualStyleBackColor = true;
+            button5.Click += button5_Click;
             // 
             // button6
             // 
@@ -354,19 +365,20 @@ namespace Sirius
             button18.Name = "button18";
             button18.Size = new Size(37, 28);
             button18.TabIndex = 2;
-            button18.Text = "U";
+            button18.Text = "RS";
             button18.UseVisualStyleBackColor = true;
             button18.Click += button18_Click;
             // 
             // button19
             // 
-            button19.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            button19.Font = new Font("Segoe UI", 7.8F, FontStyle.Bold, GraphicsUnit.Point);
             button19.Location = new Point(3, 77);
             button19.Name = "button19";
             button19.Size = new Size(37, 28);
             button19.TabIndex = 3;
-            button19.Text = "+";
+            button19.Text = "Dev";
             button19.UseVisualStyleBackColor = true;
+            button19.Click += button19_Click;
             // 
             // button20
             // 
@@ -378,13 +390,24 @@ namespace Sirius
             button20.Text = "-";
             button20.UseVisualStyleBackColor = true;
             // 
+            // comboBox2
+            // 
+            comboBox2.Dock = DockStyle.Top;
+            comboBox2.FormattingEnabled = true;
+            comboBox2.Items.AddRange(new object[] { "C", "C++", "Python", "HTML", "CSS", "Lua" });
+            comboBox2.Location = new Point(3, 862);
+            comboBox2.Name = "comboBox2";
+            comboBox2.Size = new Size(94, 28);
+            comboBox2.TabIndex = 10;
+            comboBox2.SelectedIndexChanged += comboBox2_SelectedIndexChanged_1;
+            // 
             // panel1
             // 
             panel1.BackColor = Color.Black;
             panel1.Dock = DockStyle.Right;
-            panel1.Location = new Point(1114, 0);
+            panel1.Location = new Point(1453, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(10, 944);
+            panel1.Size = new Size(10, 954);
             panel1.TabIndex = 1;
             // 
             // menuStrip1
@@ -393,9 +416,9 @@ namespace Sirius
             menuStrip1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             menuStrip1.ImageScalingSize = new Size(20, 20);
             menuStrip1.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, editToolStripMenuItem, viewToolStripMenuItem, projectToolStripMenuItem });
-            menuStrip1.Location = new Point(0, 944);
+            menuStrip1.Location = new Point(0, 954);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(1225, 28);
+            menuStrip1.Size = new Size(1564, 28);
             menuStrip1.TabIndex = 2;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -429,98 +452,93 @@ namespace Sirius
             toolStrip1.Dock = DockStyle.Bottom;
             toolStrip1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             toolStrip1.ImageScalingSize = new Size(20, 20);
-            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripLabel1, toolStripLabel2, toolStripLabel3, toolStripSeparator1, toolStripLabel4, toolStripLabel5, toolStripLabel6, toolStripSeparator2, toolStripLabel7, toolStripLabel8, toolStripLabel9, toolStripSeparator3, toolStripLabel10, toolStripLabel11, toolStripComboBox1 });
-            toolStrip1.Location = new Point(0, 912);
+            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripLabel1, toolStripLabel2, toolStripLabel3, toolStripSeparator1, toolStripLabel4, toolStripLabel5, toolStripLabel6, toolStripSeparator2, toolStripLabel7, toolStripLabel8, toolStripLabel9, toolStripSeparator3, toolStripLabel10, toolStripLabel11 });
+            toolStrip1.Location = new Point(0, 929);
             toolStrip1.Name = "toolStrip1";
-            toolStrip1.Size = new Size(1114, 32);
+            toolStrip1.Size = new Size(1453, 25);
             toolStrip1.TabIndex = 3;
             toolStrip1.Text = "toolStrip1";
             // 
             // toolStripLabel1
             // 
             toolStripLabel1.Name = "toolStripLabel1";
-            toolStripLabel1.Size = new Size(111, 29);
+            toolStripLabel1.Size = new Size(111, 22);
             toolStripLabel1.Text = "toolStripLabel1";
             // 
             // toolStripLabel2
             // 
             toolStripLabel2.Name = "toolStripLabel2";
-            toolStripLabel2.Size = new Size(111, 29);
+            toolStripLabel2.Size = new Size(111, 22);
             toolStripLabel2.Text = "toolStripLabel2";
             // 
             // toolStripLabel3
             // 
             toolStripLabel3.Name = "toolStripLabel3";
-            toolStripLabel3.Size = new Size(111, 29);
+            toolStripLabel3.Size = new Size(111, 22);
             toolStripLabel3.Text = "toolStripLabel3";
             // 
             // toolStripSeparator1
             // 
             toolStripSeparator1.Name = "toolStripSeparator1";
-            toolStripSeparator1.Size = new Size(6, 32);
+            toolStripSeparator1.Size = new Size(6, 25);
             // 
             // toolStripLabel4
             // 
             toolStripLabel4.Name = "toolStripLabel4";
-            toolStripLabel4.Size = new Size(111, 29);
+            toolStripLabel4.Size = new Size(111, 22);
             toolStripLabel4.Text = "toolStripLabel4";
             // 
             // toolStripLabel5
             // 
             toolStripLabel5.Name = "toolStripLabel5";
-            toolStripLabel5.Size = new Size(16, 29);
+            toolStripLabel5.Size = new Size(16, 22);
             toolStripLabel5.Text = "x";
             // 
             // toolStripLabel6
             // 
             toolStripLabel6.Name = "toolStripLabel6";
-            toolStripLabel6.Size = new Size(111, 29);
+            toolStripLabel6.Size = new Size(111, 22);
             toolStripLabel6.Text = "toolStripLabel6";
             // 
             // toolStripSeparator2
             // 
             toolStripSeparator2.Name = "toolStripSeparator2";
-            toolStripSeparator2.Size = new Size(6, 32);
+            toolStripSeparator2.Size = new Size(6, 25);
             // 
             // toolStripLabel7
             // 
             toolStripLabel7.Name = "toolStripLabel7";
-            toolStripLabel7.Size = new Size(111, 29);
+            toolStripLabel7.Size = new Size(111, 22);
             toolStripLabel7.Text = "toolStripLabel7";
             // 
             // toolStripLabel8
             // 
             toolStripLabel8.Name = "toolStripLabel8";
-            toolStripLabel8.Size = new Size(111, 29);
+            toolStripLabel8.Size = new Size(111, 22);
             toolStripLabel8.Text = "toolStripLabel8";
             // 
             // toolStripLabel9
             // 
             toolStripLabel9.Name = "toolStripLabel9";
-            toolStripLabel9.Size = new Size(111, 29);
+            toolStripLabel9.Size = new Size(111, 22);
             toolStripLabel9.Text = "toolStripLabel9";
             // 
             // toolStripSeparator3
             // 
             toolStripSeparator3.Name = "toolStripSeparator3";
-            toolStripSeparator3.Size = new Size(6, 32);
+            toolStripSeparator3.Size = new Size(6, 25);
             // 
             // toolStripLabel10
             // 
             toolStripLabel10.Name = "toolStripLabel10";
-            toolStripLabel10.Size = new Size(66, 29);
+            toolStripLabel10.Size = new Size(66, 22);
             toolStripLabel10.Text = "0.001 KB";
             // 
             // toolStripLabel11
             // 
             toolStripLabel11.Name = "toolStripLabel11";
-            toolStripLabel11.Size = new Size(119, 20);
+            toolStripLabel11.Size = new Size(119, 22);
             toolStripLabel11.Text = "toolStripLabel11";
-            // 
-            // toolStripComboBox1
-            // 
-            toolStripComboBox1.Name = "toolStripComboBox1";
-            toolStripComboBox1.Size = new Size(121, 28);
             // 
             // scintilla1
             // 
@@ -534,7 +552,7 @@ namespace Sirius
             scintilla1.Location = new Point(3, 3);
             scintilla1.Name = "scintilla1";
             scintilla1.ScrollWidth = 57;
-            scintilla1.Size = new Size(1100, 873);
+            scintilla1.Size = new Size(1439, 890);
             scintilla1.TabIndents = true;
             scintilla1.TabIndex = 4;
             scintilla1.UseRightToLeftReadingLayout = false;
@@ -553,31 +571,53 @@ namespace Sirius
             tabControl1.Location = new Point(0, 0);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(1114, 912);
+            tabControl1.Size = new Size(1453, 929);
             tabControl1.TabIndex = 5;
             // 
             // tabPage1
             // 
+            tabPage1.Controls.Add(label3);
+            tabPage1.Controls.Add(label2);
             tabPage1.Controls.Add(tabControl2);
             tabPage1.Controls.Add(cliplistbox);
             tabPage1.Controls.Add(scintilla1);
             tabPage1.Location = new Point(4, 29);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(1106, 879);
+            tabPage1.Size = new Size(1445, 896);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Untitled";
             tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(1137, 102);
+            label3.Name = "label3";
+            label3.Size = new Size(92, 20);
+            label3.TabIndex = 6;
+            label3.Text = "livedebugno";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(1137, 67);
+            label2.Name = "label2";
+            label2.Size = new Size(121, 20);
+            label2.TabIndex = 8;
+            label2.Text = "workspaceempty";
+            label2.Click += label2_Click;
             // 
             // tabControl2
             // 
             tabControl2.Controls.Add(tabPage3);
             tabControl2.Controls.Add(tabPage4);
+            tabControl2.Controls.Add(tabPage5);
             tabControl2.Dock = DockStyle.Bottom;
-            tabControl2.Location = new Point(3, 542);
+            tabControl2.Location = new Point(3, 559);
             tabControl2.Name = "tabControl2";
             tabControl2.SelectedIndex = 0;
-            tabControl2.Size = new Size(1100, 334);
+            tabControl2.Size = new Size(1439, 334);
             tabControl2.TabIndex = 7;
             // 
             // tabPage3
@@ -586,7 +626,7 @@ namespace Sirius
             tabPage3.Location = new Point(4, 29);
             tabPage3.Name = "tabPage3";
             tabPage3.Padding = new Padding(3);
-            tabPage3.Size = new Size(1092, 301);
+            tabPage3.Size = new Size(1431, 301);
             tabPage3.TabIndex = 0;
             tabPage3.Text = "Output";
             tabPage3.UseVisualStyleBackColor = true;
@@ -602,18 +642,19 @@ namespace Sirius
             scintilla2.Margin = new Padding(8, 3, 3, 3);
             scintilla2.Name = "scintilla2";
             scintilla2.ScrollWidth = 57;
-            scintilla2.Size = new Size(1086, 295);
+            scintilla2.Size = new Size(1425, 295);
             scintilla2.TabIndents = true;
             scintilla2.TabIndex = 6;
             scintilla2.UseRightToLeftReadingLayout = false;
             scintilla2.WrapMode = WrapMode.None;
+            scintilla2.Click += scintilla2_Click;
             // 
             // tabPage4
             // 
             tabPage4.Controls.Add(chrome1);
             tabPage4.Location = new Point(4, 29);
             tabPage4.Name = "tabPage4";
-            tabPage4.Size = new Size(1092, 301);
+            tabPage4.Size = new Size(1431, 301);
             tabPage4.TabIndex = 1;
             tabPage4.Text = "Web Debugger";
             tabPage4.UseVisualStyleBackColor = true;
@@ -624,8 +665,46 @@ namespace Sirius
             chrome1.Dock = DockStyle.Fill;
             chrome1.Location = new Point(0, 0);
             chrome1.Name = "chrome1";
-            chrome1.Size = new Size(1092, 301);
+            chrome1.Size = new Size(1431, 301);
             chrome1.TabIndex = 0;
+            // 
+            // tabPage5
+            // 
+            tabPage5.Controls.Add(kryptonRichTextBox1);
+            tabPage5.Controls.Add(scintilla3);
+            tabPage5.Location = new Point(4, 29);
+            tabPage5.Name = "tabPage5";
+            tabPage5.Size = new Size(1431, 301);
+            tabPage5.TabIndex = 2;
+            tabPage5.Text = "Console";
+            tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // kryptonRichTextBox1
+            // 
+            kryptonRichTextBox1.Dock = DockStyle.Bottom;
+            kryptonRichTextBox1.Location = new Point(0, 274);
+            kryptonRichTextBox1.Name = "kryptonRichTextBox1";
+            kryptonRichTextBox1.Size = new Size(1431, 27);
+            kryptonRichTextBox1.TabIndex = 3;
+            kryptonRichTextBox1.Text = "";
+            // 
+            // scintilla3
+            // 
+            scintilla3.AutoCMaxHeight = 9;
+            scintilla3.BiDirectionality = BiDirectionalDisplayType.Disabled;
+            scintilla3.CaretLineBackColor = Color.LightGray;
+            scintilla3.CaretLineVisible = true;
+            scintilla3.Dock = DockStyle.Fill;
+            scintilla3.LexerName = null;
+            scintilla3.Location = new Point(0, 0);
+            scintilla3.Name = "scintilla3";
+            scintilla3.ScrollWidth = 57;
+            scintilla3.Size = new Size(1431, 301);
+            scintilla3.TabIndents = true;
+            scintilla3.TabIndex = 2;
+            scintilla3.Text = "scintilla3";
+            scintilla3.UseRightToLeftReadingLayout = false;
+            scintilla3.WrapMode = WrapMode.None;
             // 
             // cliplistbox
             // 
@@ -642,7 +721,7 @@ namespace Sirius
             tabPage2.Location = new Point(4, 29);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(1106, 879);
+            tabPage2.Size = new Size(1445, 896);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Macro";
             tabPage2.UseVisualStyleBackColor = true;
@@ -683,12 +762,16 @@ namespace Sirius
             button14.Text = "B";
             button14.UseVisualStyleBackColor = true;
             // 
+            // timer1
+            // 
+            timer1.Tick += timer1_Tick;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(1225, 972);
+            ClientSize = new Size(1564, 982);
             Controls.Add(tabControl1);
             Controls.Add(toolStrip1);
             Controls.Add(panel1);
@@ -700,6 +783,7 @@ namespace Sirius
             Palette = kryptonPalette1;
             PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Custom;
             ShowIcon = false;
+            StartPosition = FormStartPosition.CenterScreen;
             StateCommon.Border.DrawBorders = ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right;
             StateCommon.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.None;
             StateCommon.Border.Rounding = 14;
@@ -716,9 +800,11 @@ namespace Sirius
             toolStrip1.PerformLayout();
             tabControl1.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
+            tabPage1.PerformLayout();
             tabControl2.ResumeLayout(false);
             tabPage3.ResumeLayout(false);
             tabPage4.ResumeLayout(false);
+            tabPage5.ResumeLayout(false);
             tableLayoutPanel2.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
@@ -773,7 +859,7 @@ namespace Sirius
         private Button button11;
         private Button button12;
         private ToolStripLabel toolStripLabel1;
-        private ToolStripComboBox toolStripComboBox1;
+        private ToolStripComboBox combobox1;
         private Scintilla scintilla2;
         private TabControl tabControl2;
         private TabPage tabPage3;
@@ -789,5 +875,13 @@ namespace Sirius
         private TableLayoutPanel tableLayoutPanel2;
         private Button button13;
         private Button button14;
+        private TabPage tabPage5;
+
+        private Scintilla scintilla3;
+        private ComponentFactory.Krypton.Toolkit.KryptonRichTextBox kryptonRichTextBox1;
+        private ComboBox comboBox2;
+        private Label label2;
+        private Label label3;
+        private System.Windows.Forms.Timer timer1;
     }
 }

@@ -12,7 +12,8 @@
 
   <ItemGroup>
     <PackageReference Include="CefSharp.WinForms.NETCore" Version="114.2.100" />
-    <PackageReference Include="Geckofx45" Version="45.0.34" />
+    <PackageReference Include="ConEmu.Control.WinForms" Version="1.21.9.5" />
+    <PackageReference Include="ConEmu.Core" Version="22.12.18" />
     <PackageReference Include="Krypton.Components.Suite" Version="4.5.9" />
     <PackageReference Include="Scintilla.NET" Version="5.3.2.7" />
     <PackageReference Include="VPKSoft.ScintillaSpellCheck.NET" Version="1.0.14" />
