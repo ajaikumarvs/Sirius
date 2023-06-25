@@ -4,6 +4,8 @@ using System.ServiceProcess;
 using System.Diagnostics;
 using System.Text;
 using System.IO;
+using Tesseract;
+using System.Drawing;
 
 
 namespace SiriusX
@@ -22,6 +24,8 @@ namespace SiriusX
         private void Form1_Load(object sender, EventArgs e)
         {
             AddNewTab();
+            openFileDialog1.Filter = "Text Files (*.txt)|*.txt|Python File|*.py|PNG File|*.png|All Files (*.*)|*.*";
+
 
 
         }
@@ -68,6 +72,34 @@ namespace SiriusX
             }
         }
 
+        private void button6_Click(object sender, EventArgs e)
+        {
+            openFileDialog1.ShowDialog(this);
+        }
+
+        private void openFileDialog1_FileOk(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            //For File Extension
+            string filePathforExt = openFileDialog1.FileName;
+            string fileExtension = Path.GetExtension(filePathforExt);
+            //OCR
+            if (fileExtension == ".png")
+            {
+                var tesseractEngine = new TesseractEngine("./tessdata", "eng", EngineMode.Default);
+
+                var image = Image.FromFile(filePathforExt); // Replace with the actual image file path
+                using (var pix = Pix.LoadFromFile(openFileDialog1.FileName))
+                {
+                    using (var page = tesseractEngine.Process(pix))
+                    {
+                        // Get the extracted text from the page
+                        var extractedText = page.GetText();
+
+                        // Assuming you have a RichTextBox control named "richTextBox1"
+                        richTextBox1.Text = extractedText;
+                    }
+                }
+            }
 
 
 
@@ -77,6 +109,68 @@ namespace SiriusX
 
 
 
-    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            //START OF NORMAL FILE OPENING FEATURE-------------------------------------------------
+            try
+            {
+                // Retrieve the selected file path
+                string filePath = openFileDialog1.FileName;
+
+                // Open the file for reading
+                
+                    TabPage selectedTab = tabControl1.SelectedTab;
+                    // Check if the selected tab contains a ScintillaEditor instance
+                    if (selectedTab.Controls[0] is ScintillaEditor scintillaEditor)
+                    {
+                    // Get the text from your desired source (e.g., a textbox)
+                    using (StreamReader reader = new StreamReader(filePath))
+                    {
+                        StringBuilder textBuilder = new StringBuilder();
+
+                        string line;
+
+                        // Read and process each line of the file
+                        while ((line = reader.ReadLine()) != null)
+                        {
+                            textBuilder.AppendLine(line);
+                        }
+                        string fileText = textBuilder.ToString();
+
+
+                        // Update the Scintilla editor's text
+                        scintillaEditor.Text = line;
+                    }
+
+                }
+            }
+            catch (IOException g)
+            {
+                Console.WriteLine("An error occurred while reading the file: " + g.Message);
+            }
+
+        }
+    }   
+
 }
+    
+
 

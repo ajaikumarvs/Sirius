@@ -36,6 +36,9 @@ namespace SiriusX
             button2 = new Button();
             flowLayoutPanel1 = new FlowLayoutPanel();
             button3 = new Button();
+            button4 = new Button();
+            button5 = new Button();
+            button6 = new Button();
             menuStrip1 = new MenuStrip();
             fileToolStripMenuItem = new ToolStripMenuItem();
             openToolStripMenuItem = new ToolStripMenuItem();
@@ -48,14 +51,21 @@ namespace SiriusX
             toolStrip1 = new ToolStrip();
             tabControl2 = new TabControl();
             tabPage1 = new TabPage();
+            textBox1 = new TextBox();
+            richTextBox1 = new RichTextBox();
             tabPage2 = new TabPage();
             kryptonPanel1 = new Krypton.Toolkit.KryptonPanel();
+            kryptonPanel4 = new Krypton.Toolkit.KryptonPanel();
             kryptonPanel2 = new Krypton.Toolkit.KryptonPanel();
             kryptonPanel3 = new Krypton.Toolkit.KryptonPanel();
+            openFileDialog1 = new OpenFileDialog();
             flowLayoutPanel1.SuspendLayout();
             menuStrip1.SuspendLayout();
             tabControl2.SuspendLayout();
+            tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)kryptonPanel1).BeginInit();
+            kryptonPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)kryptonPanel4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)kryptonPanel2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)kryptonPanel3).BeginInit();
             SuspendLayout();
@@ -63,17 +73,17 @@ namespace SiriusX
             // tabControl1
             // 
             tabControl1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            tabControl1.Location = new Point(0, 3);
+            tabControl1.Location = new Point(4, 9);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(1043, 522);
+            tabControl1.Size = new Size(1041, 390);
             tabControl1.TabIndex = 2;
             // 
             // button1
             // 
-            button1.Location = new Point(3, 40);
+            button1.Location = new Point(873, 40);
             button1.Name = "button1";
-            button1.Size = new Size(131, 87);
+            button1.Size = new Size(131, 32);
             button1.TabIndex = 3;
             button1.Text = "button1";
             button1.UseVisualStyleBackColor = true;
@@ -93,7 +103,9 @@ namespace SiriusX
             // 
             flowLayoutPanel1.Controls.Add(button2);
             flowLayoutPanel1.Controls.Add(button3);
-            flowLayoutPanel1.Controls.Add(button1);
+            flowLayoutPanel1.Controls.Add(button4);
+            flowLayoutPanel1.Controls.Add(button5);
+            flowLayoutPanel1.Controls.Add(button6);
             flowLayoutPanel1.Dock = DockStyle.Right;
             flowLayoutPanel1.Location = new Point(1053, 0);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
@@ -109,6 +121,34 @@ namespace SiriusX
             button3.Text = "-";
             button3.UseVisualStyleBackColor = true;
             button3.Click += button3_Click_1;
+            // 
+            // button4
+            // 
+            button4.Location = new Point(3, 40);
+            button4.Name = "button4";
+            button4.Size = new Size(130, 33);
+            button4.TabIndex = 6;
+            button4.Text = "New";
+            button4.UseVisualStyleBackColor = true;
+            // 
+            // button5
+            // 
+            button5.Location = new Point(3, 79);
+            button5.Name = "button5";
+            button5.Size = new Size(130, 33);
+            button5.TabIndex = 7;
+            button5.Text = "Save";
+            button5.UseVisualStyleBackColor = true;
+            // 
+            // button6
+            // 
+            button6.Location = new Point(3, 118);
+            button6.Name = "button6";
+            button6.Size = new Size(130, 33);
+            button6.TabIndex = 8;
+            button6.Text = "Open";
+            button6.UseVisualStyleBackColor = true;
+            button6.Click += button6_Click;
             // 
             // menuStrip1
             // 
@@ -196,6 +236,9 @@ namespace SiriusX
             // 
             // tabPage1
             // 
+            tabPage1.Controls.Add(textBox1);
+            tabPage1.Controls.Add(richTextBox1);
+            tabPage1.Controls.Add(button1);
             tabPage1.Location = new Point(4, 29);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new Padding(3);
@@ -203,6 +246,22 @@ namespace SiriusX
             tabPage1.TabIndex = 0;
             tabPage1.Text = "tabPage1";
             tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            textBox1.Dock = DockStyle.Bottom;
+            textBox1.Location = new Point(3, 215);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(1039, 27);
+            textBox1.TabIndex = 1;
+            // 
+            // richTextBox1
+            // 
+            richTextBox1.Location = new Point(133, 43);
+            richTextBox1.Name = "richTextBox1";
+            richTextBox1.Size = new Size(597, 173);
+            richTextBox1.TabIndex = 0;
+            richTextBox1.Text = "";
             // 
             // tabPage2
             // 
@@ -216,6 +275,7 @@ namespace SiriusX
             // 
             // kryptonPanel1
             // 
+            kryptonPanel1.Controls.Add(kryptonPanel4);
             kryptonPanel1.Dock = DockStyle.Right;
             kryptonPanel1.Location = new Point(1051, 0);
             kryptonPanel1.Name = "kryptonPanel1";
@@ -223,6 +283,16 @@ namespace SiriusX
             kryptonPanel1.PanelBackStyle = Krypton.Toolkit.PaletteBackStyle.ContextMenuHeading;
             kryptonPanel1.Size = new Size(2, 408);
             kryptonPanel1.TabIndex = 11;
+            // 
+            // kryptonPanel4
+            // 
+            kryptonPanel4.Dock = DockStyle.Right;
+            kryptonPanel4.Location = new Point(0, 0);
+            kryptonPanel4.Name = "kryptonPanel4";
+            kryptonPanel4.PaletteMode = Krypton.Toolkit.PaletteMode.SparklePurpleLightMode;
+            kryptonPanel4.PanelBackStyle = Krypton.Toolkit.PaletteBackStyle.ContextMenuHeading;
+            kryptonPanel4.Size = new Size(2, 408);
+            kryptonPanel4.TabIndex = 12;
             // 
             // kryptonPanel2
             // 
@@ -243,6 +313,10 @@ namespace SiriusX
             kryptonPanel3.PanelBackStyle = Krypton.Toolkit.PaletteBackStyle.HeaderCustom1;
             kryptonPanel3.Size = new Size(1051, 3);
             kryptonPanel3.TabIndex = 0;
+            // 
+            // openFileDialog1
+            // 
+            openFileDialog1.FileOk += openFileDialog1_FileOk;
             // 
             // Form1
             // 
@@ -265,7 +339,11 @@ namespace SiriusX
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             tabControl2.ResumeLayout(false);
+            tabPage1.ResumeLayout(false);
+            tabPage1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)kryptonPanel1).EndInit();
+            kryptonPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)kryptonPanel4).EndInit();
             ((System.ComponentModel.ISupportInitialize)kryptonPanel2).EndInit();
             ((System.ComponentModel.ISupportInitialize)kryptonPanel3).EndInit();
             ResumeLayout(false);
@@ -299,5 +377,12 @@ namespace SiriusX
         private Krypton.Toolkit.KryptonPanel kryptonPanel1;
         private Krypton.Toolkit.KryptonPanel kryptonPanel2;
         private Krypton.Toolkit.KryptonPanel kryptonPanel3;
+        private TextBox textBox1;
+        private RichTextBox richTextBox1;
+        private Krypton.Toolkit.KryptonPanel kryptonPanel4;
+        private Button button4;
+        private Button button5;
+        private Button button6;
+        private OpenFileDialog openFileDialog1;
     }
 }
