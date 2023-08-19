@@ -18,12 +18,12 @@ public class ScintillaEditor : Scintilla
     {
 
      
-
+       
         //Margins
         Margins[0].Width = 50;  // Adjust the width as needed
 
         // Initialize Scintilla properties and settings here
-        Lexer = Lexer.Cpp;
+   
 
         // Set the default style for the editor
         Styles[Style.Default].Font = "Consolas";
@@ -44,7 +44,7 @@ public class ScintillaEditor : Scintilla
         // Enable automatic syntax highlighting
         Styles[Style.Cpp.Default].Hotspot = true;
         //Styles[Style.Cpp.Default].Underline = true;
-        Styles[Style.Cpp.Default].Case = StyleCase.Upper;
+        //Styles[Style.Cpp.Default].Case = StyleCase.Upper;
         Styles[Style.Cpp.Default].Visible = true;
 
         // Set the keywords for C language
@@ -52,8 +52,29 @@ public class ScintillaEditor : Scintilla
 
 
 
+        //Style configuration for HTML language elements
 
+        // Configure styles for HTML tags
+        Styles[Style.Html.Tag].ForeColor = Color.Blue;
 
+        // Configure styles for HTML attributes
+        Styles[Style.Html.Attribute].ForeColor = Color.Red;
+
+        // Configure style for HTML comments
+       Styles[Style.Html.Comment].ForeColor = Color.Green;
+
+        // Configure style for HTML entities
+        Styles[Style.Html.Entity].ForeColor = Color.Purple;
+
+        // Configure style for HTML double-quoted strings
+        Styles[Style.Html.DoubleString].ForeColor = Color.DarkRed;
+
+        // Configure style for HTML single-quoted strings
+        Styles[Style.Html.SingleString].ForeColor = Color.DarkRed;
+
+        // Configure style for HTML numbers
+        Styles[Style.Html.Number].ForeColor = Color.DarkBlue;
+  
     }
 
 
