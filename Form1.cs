@@ -340,6 +340,7 @@ namespace SiriusX
                     var output = System.Text.Encoding.UTF8.GetString(outputStream.ToArray());
 
                     pyscint.Text = output;
+                    tabControl1.SelectedTab = pyTab;
 
 
 
