@@ -11,7 +11,8 @@ public class ScintillaEditor : Scintilla
 
 
     private Scintilla scintilla;
-   
+    private string[] cKeywords = { "if", "else", "while", "for", /*...add more keywords...*/ };
+
     // Constructor
 
     public ScintillaEditor()
@@ -27,7 +28,7 @@ public class ScintillaEditor : Scintilla
 
         // Set the default style for the editor
         Styles[Style.Default].Font = "Consolas";
-        Styles[Style.Default].Size = 10;
+        Styles[Style.Default].Size = 12;
         Styles[Style.Default].ForeColor = Color.Black;
         Styles[Style.Default].BackColor = Color.White;
 
@@ -39,7 +40,10 @@ public class ScintillaEditor : Scintilla
         Styles[Style.Cpp.String].ForeColor = Color.Red;
         Styles[Style.Cpp.Character].ForeColor = Color.Red;
         Styles[Style.Cpp.Preprocessor].ForeColor = Color.Gray;
-        Styles[Style.Cpp.Word].ForeColor = Color.DarkBlue;
+        Styles[Style.Cpp.Word].ForeColor = Color.BlueViolet;
+        Styles[Style.Cpp.Operator].ForeColor = Color.Violet;
+
+        
 
         // Enable automatic syntax highlighting
         Styles[Style.Cpp.Default].Hotspot = true;
@@ -47,15 +51,20 @@ public class ScintillaEditor : Scintilla
         //Styles[Style.Cpp.Default].Case = StyleCase.Upper;
         Styles[Style.Cpp.Default].Visible = true;
 
-        // Set the keywords for C language
-        SetKeywords(0, "auto break case char const continue default do double else enum extern float for goto if int long register return short signed sizeof static struct switch typedef union unsigned void volatile while");
-
-
 
         //Style configuration for HTML language elements
 
         // Configure styles for HTML tags
         Styles[Style.Html.Tag].ForeColor = Color.Blue;
+        // Set up HTML keyword styling
+        Styles[Style.Html.Default].ForeColor = Color.Black; // Default text color
+        Styles[Style.Html.Tag].ForeColor = Color.Blue; // Tag color
+        Styles[Style.Html.Attribute].ForeColor = Color.Red; // Attribute color
+        Styles[Style.Html.Comment].ForeColor = Color.Green; // Comment color
+        Styles[Style.Html.DoubleString].ForeColor = Color.DarkRed; // Double-quoted string color
+        Styles[Style.Html.SingleString].ForeColor = Color.DarkRed; // Single-quoted string color
+
+        
 
         // Configure styles for HTML attributes
         Styles[Style.Html.Attribute].ForeColor = Color.Red;

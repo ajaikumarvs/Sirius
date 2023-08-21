@@ -35,7 +35,7 @@ namespace SiriusX
         {
             AddNewTab();
             openFileDialog1.Filter = "Text Files (*.txt)|*.txt|Python File|*.py|PNG File|*.png|Javascript|*.js|All Files (*.*)|*.*";
-
+           
 
 
 
@@ -52,6 +52,7 @@ namespace SiriusX
             tabControl1.TabPages.Add(tabPage);
             tabControl1.SelectedTab = tabPage;
             scintillaEditor.AllowDrop = true;
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -204,8 +205,10 @@ namespace SiriusX
             else if (comboBox1.SelectedIndex == 1)
             {
                 tstriplexname.Text = Lexer.Cpp.ToString();
-
                 scintillaEditor.Lexer = Lexer.Cpp;
+                scintillaEditor.SetKeywords(0, "auto break main case char const continue default do double else enum extern float for goto if int long register return short signed sizeof static struct switch typedef union unsigned void volatile while");
+
+              
 
             }
             else if (comboBox1.SelectedIndex == 2)
@@ -218,6 +221,30 @@ namespace SiriusX
             else if (comboBox1.SelectedIndex == 3)
             {
                 tstriplexname.Text = Lexer.Html.ToString();
+                scintillaEditor.Lexer = Lexer.Html;
+                scintillaEditor.StyleClearAll();
+                scintillaEditor.SetKeywords(0, "<!DOCTYPE html> <html> <head> <meta> <title> <style> <link> <script> <noscript> </head> <body> <article> <aside> <details> <figcaption> <figure> <footer> <header> <main> <mark> <nav> <section> <summary> <time> <address> <blockquote> <dd> <div> <dl> <dt> <fieldset> <figcaption> <figure> <hr> <li> <ol> <p> <pre> <ul> <a> <abbr> <b> <bdi> <bdo> <br> <cite> <code> <data> <dfn> <em> <i> <kbd> <mark> <q> <rp> <rt> <rtc> <ruby> <s> <samp> <small> <span> <strong> <sub> <sup> <time> <u> <var> <wbr> <area> <audio> <map> <track> <video> <embed> <object> <param> <source> <canvas> <noscript> <script> <slot> <template> <acronym> <applet> <basefont> <big> <blink> <center> <command> <content> <dir> <element> <font> <frame> <frameset> <image> <isindex> <keygen> <listing> <marquee> <menuitem> <multicol> <nextid> <nobr> <spacer> <strike> <tt> <xmp> </body> </html>");
+
+                // Enable folding markers
+                scintillaEditor.Margins[2].Type = MarginType.Symbol;
+                scintillaEditor.Margins[2].Mask = Marker.MaskFolders;
+                scintillaEditor.Margins[2].Sensitive = true;
+                scintillaEditor.Margins[2].Width = 20;
+
+                // Set folder markers
+                scintillaEditor.Markers[Marker.Folder].Symbol = MarkerSymbol.BoxPlus;
+                scintillaEditor.Markers[Marker.FolderOpen].Symbol = MarkerSymbol.BoxMinus;
+                scintillaEditor.Markers[Marker.FolderEnd].Symbol = MarkerSymbol.BoxPlusConnected;
+                scintillaEditor.Markers[Marker.FolderMidTail].Symbol = MarkerSymbol.TCorner;
+                scintillaEditor.Markers[Marker.FolderOpenMid].Symbol = MarkerSymbol.BoxMinusConnected;
+                scintillaEditor.Markers[Marker.FolderSub].Symbol = MarkerSymbol.VLine;
+                scintillaEditor.Markers[Marker.FolderTail].Symbol = MarkerSymbol.LCorner;
+
+                // Disable automatic indentation
+                scintillaEditor.IndentationGuides = IndentView.None;
+                // Load HTML keywords (tags and attributes)
+                scintillaEditor.Refresh();
+
 
             }
             else if (comboBox1.SelectedIndex == 4)
