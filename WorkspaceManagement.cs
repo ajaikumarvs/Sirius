@@ -65,13 +65,13 @@ namespace SiriusX
                 {
                     File.WriteAllText(label4.Text, _form1.currentext.Text);
                 }
-                
+
                 // Show a success message
                 MessageBox.Show("Workspace Created Successfully.", "Workspace Management", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Form1 form = new Form1();
                 workspacepath = textBox1.Text;
                 filepath = label4.Text;
-               _form1.workspaceLabel.Text = workspacepath;
+                _form1.workspaceLabel.Text = workspacepath;
                 _form1.filenameLabel.Text = filepath;
 
             }
@@ -103,7 +103,7 @@ namespace SiriusX
         {
 
         }
-        
+
     }
 
 

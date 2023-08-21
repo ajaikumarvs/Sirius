@@ -44,10 +44,11 @@
             // label1
             // 
             label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point);
             label1.ForeColor = SystemColors.ButtonFace;
             label1.Location = new Point(12, 9);
             label1.Name = "label1";
-            label1.Size = new Size(212, 20);
+            label1.Size = new Size(514, 46);
             label1.TabIndex = 0;
             label1.Text = "Sirius Workspace Management";
             // 
@@ -56,7 +57,7 @@
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             label2.ForeColor = SystemColors.ButtonFace;
-            label2.Location = new Point(12, 185);
+            label2.Location = new Point(12, 121);
             label2.Name = "label2";
             label2.Size = new Size(177, 20);
             label2.TabIndex = 1;
@@ -64,7 +65,7 @@
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(12, 208);
+            textBox1.Location = new Point(12, 144);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(468, 27);
             textBox1.TabIndex = 2;
@@ -72,7 +73,7 @@
             // 
             // button1
             // 
-            button1.Location = new Point(486, 208);
+            button1.Location = new Point(486, 144);
             button1.Name = "button1";
             button1.Size = new Size(94, 29);
             button1.TabIndex = 3;
@@ -87,7 +88,7 @@
             // 
             // button2
             // 
-            button2.Location = new Point(12, 345);
+            button2.Location = new Point(605, 303);
             button2.Name = "button2";
             button2.Size = new Size(152, 72);
             button2.TabIndex = 4;
@@ -104,7 +105,7 @@
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             label3.ForeColor = SystemColors.ButtonFace;
-            label3.Location = new Point(12, 269);
+            label3.Location = new Point(12, 205);
             label3.Name = "label3";
             label3.Size = new Size(134, 20);
             label3.TabIndex = 5;
@@ -112,7 +113,7 @@
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(12, 292);
+            textBox2.Location = new Point(12, 228);
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(468, 27);
             textBox2.TabIndex = 6;
@@ -121,19 +122,20 @@
             // label4
             // 
             label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 9F, FontStyle.Italic, GraphicsUnit.Point);
             label4.ForeColor = SystemColors.ButtonFace;
-            label4.Location = new Point(12, 322);
+            label4.Location = new Point(12, 258);
             label4.Name = "label4";
-            label4.Size = new Size(60, 20);
+            label4.Size = new Size(39, 20);
             label4.TabIndex = 7;
-            label4.Text = "filepath";
+            label4.Text = "Path";
             // 
             // WorkspaceManagement
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(24, 24, 24);
-            ClientSize = new Size(961, 552);
+            ClientSize = new Size(769, 387);
             Controls.Add(label4);
             Controls.Add(textBox2);
             Controls.Add(label3);
@@ -145,8 +147,6 @@
             Name = "WorkspaceManagement";
             Text = "Workspace Management";
             Load += WorkspaceManagement_Load;
-           
-
             ResumeLayout(false);
             PerformLayout();
         }

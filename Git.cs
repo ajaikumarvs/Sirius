@@ -17,7 +17,7 @@ namespace SiriusX
         public Git()
         {
             InitializeComponent();
-            
+
         }
 
         private void Git_Load(object sender, EventArgs e)
@@ -50,7 +50,7 @@ namespace SiriusX
 
             label1.Text = repositoryName;
 
-            
+
 
         }
 
@@ -64,6 +64,7 @@ namespace SiriusX
                 {
                     string selectedFolderPath = folderDialog.SelectedPath;
                     label2.Text = selectedFolderPath;
+                    textBox2.Text = selectedFolderPath;
                 }
                 else
                 {
@@ -96,14 +97,14 @@ namespace SiriusX
 
                 MessageBox.Show("Repository cloned successfully.");
 
-            
+
 
             }
         }
 
-      
-        }
+
     }
+}
 
 
 

@@ -71,12 +71,12 @@ namespace SiriusX
             toolStripLabel1 = new ToolStripLabel();
             tabControl2 = new TabControl();
             outTab = new TabPage();
-            listView1 = new ListView();
             outscint = new Scintilla();
             textBox1 = new TextBox();
             webTab = new TabPage();
             chromium = new CefSharp.WinForms.ChromiumWebBrowser();
             pyTab = new TabPage();
+            pyscint = new Scintilla();
             tabPage1 = new TabPage();
             currentext = new Scintilla();
             label2 = new Label();
@@ -98,6 +98,7 @@ namespace SiriusX
             tabControl2.SuspendLayout();
             outTab.SuspendLayout();
             webTab.SuspendLayout();
+            pyTab.SuspendLayout();
             tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)kryptonPanel1).BeginInit();
             kryptonPanel1.SuspendLayout();
@@ -122,7 +123,7 @@ namespace SiriusX
             button1.Name = "button1";
             button1.Size = new Size(131, 32);
             button1.TabIndex = 3;
-            button1.Text = "button1";
+            button1.Text = "Capture";
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
@@ -428,6 +429,7 @@ namespace SiriusX
             cloneToolStripMenuItem.Name = "cloneToolStripMenuItem";
             cloneToolStripMenuItem.Size = new Size(130, 26);
             cloneToolStripMenuItem.Text = "Clone";
+            cloneToolStripMenuItem.Click += cloneToolStripMenuItem_Click;
             // 
             // debugToolStripMenuItem
             // 
@@ -480,7 +482,6 @@ namespace SiriusX
             // 
             // outTab
             // 
-            outTab.Controls.Add(listView1);
             outTab.Controls.Add(outscint);
             outTab.Controls.Add(textBox1);
             outTab.Location = new Point(4, 29);
@@ -491,14 +492,6 @@ namespace SiriusX
             outTab.Text = "Output";
             outTab.UseVisualStyleBackColor = true;
             // 
-            // listView1
-            // 
-            listView1.Location = new Point(902, 3);
-            listView1.Name = "listView1";
-            listView1.Size = new Size(151, 239);
-            listView1.TabIndex = 5;
-            listView1.UseCompatibleStateImageBehavior = false;
-            // 
             // outscint
             // 
             outscint.AutoCMaxHeight = 9;
@@ -506,11 +499,12 @@ namespace SiriusX
             outscint.CaretForeColor = Color.Gray;
             outscint.CaretLineBackColor = Color.White;
             outscint.CaretLineVisible = true;
+            outscint.Dock = DockStyle.Fill;
             outscint.LexerName = null;
             outscint.Location = new Point(3, 3);
             outscint.Name = "outscint";
             outscint.ScrollWidth = 57;
-            outscint.Size = new Size(899, 239);
+            outscint.Size = new Size(1171, 212);
             outscint.TabIndents = true;
             outscint.TabIndex = 4;
             outscint.UseRightToLeftReadingLayout = false;
@@ -546,12 +540,31 @@ namespace SiriusX
             // 
             // pyTab
             // 
+            pyTab.Controls.Add(pyscint);
             pyTab.Location = new Point(4, 29);
             pyTab.Name = "pyTab";
             pyTab.Size = new Size(1177, 245);
             pyTab.TabIndex = 2;
             pyTab.Text = "Python";
             pyTab.UseVisualStyleBackColor = true;
+            // 
+            // pyscint
+            // 
+            pyscint.AutoCMaxHeight = 9;
+            pyscint.BiDirectionality = BiDirectionalDisplayType.Disabled;
+            pyscint.CaretForeColor = Color.White;
+            pyscint.CaretLineBackColor = Color.White;
+            pyscint.CaretLineVisible = true;
+            pyscint.Dock = DockStyle.Fill;
+            pyscint.LexerName = null;
+            pyscint.Location = new Point(0, 0);
+            pyscint.Name = "pyscint";
+            pyscint.ScrollWidth = 57;
+            pyscint.Size = new Size(1177, 245);
+            pyscint.TabIndents = true;
+            pyscint.TabIndex = 0;
+            pyscint.UseRightToLeftReadingLayout = false;
+            pyscint.WrapMode = WrapMode.None;
             // 
             // tabPage1
             // 
@@ -707,6 +720,7 @@ namespace SiriusX
             outTab.ResumeLayout(false);
             outTab.PerformLayout();
             webTab.ResumeLayout(false);
+            pyTab.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
             tabPage1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)kryptonPanel1).EndInit();
@@ -778,8 +792,8 @@ namespace SiriusX
         private ToolStripMenuItem cloneToolStripMenuItem;
         private ToolStripLabel toolStripLabel1;
         private Scintilla outscint;
-        private ListView listView1;
         public Scintilla currentext;
         private Scintilla previewscint;
+        private Scintilla pyscint;
     }
 }

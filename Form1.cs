@@ -16,6 +16,7 @@ using Microsoft.Scripting.Hosting;
 using System.Collections.Generic;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using System.Security.Cryptography.X509Certificates;
+using System.Reflection.Emit;
 
 namespace SiriusX
 {
@@ -26,6 +27,7 @@ namespace SiriusX
         public Form1()
         {
             InitializeComponent();
+         
 
 
         }
@@ -35,10 +37,28 @@ namespace SiriusX
         {
             AddNewTab();
             openFileDialog1.Filter = "Text Files (*.txt)|*.txt|Python File|*.py|PNG File|*.png|Javascript|*.js|All Files (*.*)|*.*";
-           
 
 
 
+
+        }
+        private string GetTextFromCurrentTab()
+        {
+            if (tabControl1.SelectedTab != null && tabControl1.SelectedTab.Controls.Count > 0)
+            {
+                if (tabControl1.SelectedTab.Controls[0] is ScintillaEditor scintilla)
+                {
+                    return scintilla.Text;
+                }
+            }
+
+            return string.Empty;
+        }
+
+        private void GetTextButton_Click(object sender, EventArgs e)
+        {
+            string text = GetTextFromCurrentTab();
+            MessageBox.Show(text);
         }
 
         private void AddNewTab()
@@ -52,12 +72,12 @@ namespace SiriusX
             tabControl1.TabPages.Add(tabPage);
             tabControl1.SelectedTab = tabPage;
             scintillaEditor.AllowDrop = true;
-            
+
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+          
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -208,7 +228,7 @@ namespace SiriusX
                 scintillaEditor.Lexer = Lexer.Cpp;
                 scintillaEditor.SetKeywords(0, "auto break main case char const continue default do double else enum extern float for goto if int long register return short signed sizeof static struct switch typedef union unsigned void volatile while");
 
-              
+
 
             }
             else if (comboBox1.SelectedIndex == 2)
@@ -294,7 +314,11 @@ namespace SiriusX
             {
                 try
                 {
-                    listView1.Items.Clear();
+
+                    string curtext = GetTextFromCurrentTab();
+                    File.WriteAllText(filenameLabel.Text, curtext);
+
+
                     var engine = Python.CreateEngine();
 
                     // Create a new scope for the Python script
@@ -315,7 +339,7 @@ namespace SiriusX
                     // Get the captured output
                     var output = System.Text.Encoding.UTF8.GetString(outputStream.ToArray());
 
-                    outscint.Text = output;
+                    pyscint.Text = output;
 
 
 
@@ -327,6 +351,20 @@ namespace SiriusX
                 }
             }
             // END OF PYTHON DEBUG
+            else if (tstriplexname.Text == "Html")
+            {
+                string curtext = GetTextFromCurrentTab();
+                
+
+                File.WriteAllText(filenameLabel.Text,curtext );
+
+                chromium.Reload();
+                chromium.Load(filenameLabel.Text);
+
+
+            }
+
+
 
         }
 
@@ -339,6 +377,12 @@ namespace SiriusX
         {
 
 
+        }
+
+        private void cloneToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form git = new Git();
+            git.ShowDialog();
         }
     }
 
